@@ -15,6 +15,7 @@ const glypy = glypyMapMaker({
 });
 var Home = require('./../components/HomeComponent');
 var LobbyMgr=require('./../components/LobbyMgrComponent');
+var Fund=require('./../components/FinancialComponent');
 var MainScreen = React.createClass({
 
     render: function () {
@@ -40,7 +41,7 @@ var MainScreen = React.createClass({
                 <Tab name="stats">
                     <IconWithBar label="理财产品" type={glypy.Product} from={'icomoon'}/>
                     <RawContent>
-                        <Text>理财产品</Text>
+                        <Fund navigator={this.props.navigator}/>
                     </RawContent>
 
                 </Tab>
