@@ -22,7 +22,8 @@ var FinancialHome = React.createClass({
             tabIndex: 0,
         };
     },
-
+    componentDidMount: function() {
+    },
     _setStyle:function(i){
         if(i==this.state.tabIndex){
             return styles.cellTouch;
@@ -61,6 +62,7 @@ var FinancialHome = React.createClass({
         </Text></View>
     },
     render() {
+
         return(
             <View>
                 <View style={styles.flexContainer}>

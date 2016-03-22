@@ -17,6 +17,9 @@ var Home = require('./../components/HomeComponent');
 var LobbyMgr=require('./../components/LobbyMgrComponent');
 var Fund=require('./../components/FinancialComponent');
 var MainScreen = React.createClass({
+    _tabbarToggle(value) {
+        this.refs['myTabbar'].getBarRef().show(value);
+    },
 
     render: function () {
         return (
@@ -41,7 +44,7 @@ var MainScreen = React.createClass({
                 <Tab name="stats">
                     <IconWithBar label="理财产品" type={glypy.Product} from={'icomoon'}/>
                     <RawContent>
-                        <Fund navigator={this.props.navigator}/>
+                        <Fund navigator={this.props.navigator} mainScreen={this}/>
                     </RawContent>
 
                 </Tab>

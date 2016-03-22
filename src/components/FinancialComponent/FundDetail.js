@@ -22,7 +22,7 @@ var FundDetail = React.createClass({
     render: function() {
         return (
             <View>
-                <DetailHeader navigator={this.props.navigator} title="基金详情"></DetailHeader>
+                <DetailHeader navigator={this.props.navigator} title="基金详情" mainScreen={this.props.mainScreen}></DetailHeader>
                 <View style={styles.row}>
                     <View>
                         <Text style={{fontSize: 25,fontWeight:'bold'}}>

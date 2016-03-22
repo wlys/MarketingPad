@@ -8,7 +8,6 @@ import React, {
 } from 'react-native';
 
 var MainScreen = require('./MainScreen');
-var FundDetail=require('../components/FinancialComponent/FundDetail');
 
 var App = React.createClass({
 
@@ -16,29 +15,12 @@ var App = React.createClass({
         return Navigator.SceneConfigs.PushFromRight;
     },
 
-    componentDidMount() {
-        var navigator = this._navigator;
-        BackAndroid.addEventListener('hardwareBackPress', function() {
-            if (navigator && navigator.getCurrentRoutes().length > 1) {
-                navigator.pop();
-                return true;
-            }
-            return false;
-        });
-    },
-    componentWillUnmount() {
-        BackAndroid.removeEventListener('hardwareBackPress');
-    },
-
-
     _renderScene: function (router, navigator) {
         var Component = null;
         this._navigator = navigator;
         switch (router.name) {
             case "MainScreen":
                 return <MainScreen navigator={navigator} initialTab="home" />
-            case "FundDetail":
-                return <FundDetail navigator={navigator} router={router}/>
             default: //default view
                 return <MainScreen navigator={navigator} initialTab="manager" />
         }
