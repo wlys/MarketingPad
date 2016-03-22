@@ -1,6 +1,3 @@
-/**
- * Created by xuhanmeng on 16/3/15.
- */
 import Tabbar, { Tab, RawContent, IconWithBar, glypyMapMaker } from 'react-native-tabbar';
 var React = require('react-native');
 var {
@@ -11,7 +8,7 @@ var {
 
 const glypy = glypyMapMaker({
     Home: 'e900',
-    Manager: 'e901',
+    Manager: 'f0c0',
     Product: 'e902',
     Settings: 'e903'
 
@@ -22,7 +19,7 @@ var MainScreen = React.createClass({
 
     render: function () {
         return (
-            <Tabbar ref="myTabbar" barColor={'#eeeeee'}>
+            <Tabbar ref="myTabbar" barColor={'#eeeeee'} initialTab={this.props.initialTab}>
                 <Tab name="home">
                     <IconWithBar label=" 首页" type={glypy.Home} from={'icomoon'}/>
                     <RawContent>
@@ -31,13 +28,15 @@ var MainScreen = React.createClass({
                     </RawContent>
 
                 </Tab>
+
                 <Tab name="manager">
-                    <IconWithBar label="大堂管理" type={glypy.Manager} from={'icomoon'}/>
+                    <IconWithBar label="大堂管理" type={glypy.Manager} from={'FontAwesome'}/>
                     <RawContent>
                         <LobbyMgr/>
                     </RawContent>
 
                 </Tab>
+
                 <Tab name="stats">
                     <IconWithBar label="理财产品" type={glypy.Product} from={'icomoon'}/>
                     <RawContent>

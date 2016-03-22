@@ -1,6 +1,4 @@
-/**
- * Created by seastar on 16/3/8.
- */
+
 'use strict';
 import React, {
     AppRegistry,
@@ -22,13 +20,12 @@ var App = React.createClass({
         //this._navigator = navigator;
         switch (router.name) {
             case "MainScreen":
-                Component = MainScreen;
-                break;
+                return <MainScreen navigator={navigator} initialTab="home" />
+
             default: //default view
-                Component = Home;
+                return <MainScreen navigator={navigator} initialTab="manager" />
         }
 
-        return <Component navigator={navigator}/>
     },
 
     render: function() {
@@ -44,7 +41,7 @@ var App = React.createClass({
                     return <Component {...route.params} navigator={navigator} />
                 }}
         />*/
-
+//why use Navigator
         return (
             <Navigator
                 initialRoute={{name: 'MainScreen'}}
