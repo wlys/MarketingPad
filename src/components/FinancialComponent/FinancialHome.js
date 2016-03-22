@@ -11,9 +11,10 @@ var {
     Image,
     View,
     Dimensions,
+    ScrollView,
     } = React;
 var Fund=require('./Fund');
-var tabArray=[{name:'基金',},{name:'国债'},{name:'保险'},{name:'理财'}];
+var tabArray=[{name:'基金',},{name:'国债'},{name:'保险'},{name:'理财'},];
 
 
 var FinancialHome = React.createClass({
@@ -25,11 +26,12 @@ var FinancialHome = React.createClass({
     componentDidMount: function() {
     },
     _setStyle:function(i){
-        if(i==this.state.tabIndex){
+        if(i == this.state.tabIndex){
             return styles.cellTouch;
         }
         return styles.cell;
     },
+
     _renderTabHeader(tabArray,styles){
 
         return tabArray.map(function (items, i) {
@@ -66,7 +68,10 @@ var FinancialHome = React.createClass({
         return(
             <View>
                 <View style={styles.flexContainer}>
-                    { this._renderTabHeader(tabArray,styles)}
+                    <ScrollView key={'scrollView'} horizontal={true}>
+                        { this._renderTabHeader(tabArray,styles)}
+                    </ScrollView>
+
                 </View>
                 {this._renderTabContent(this.state.tabIndex)}
             </View>
@@ -77,15 +82,18 @@ module.exports=FinancialHome;
 var styles = StyleSheet.create({
     flexContainer: {
         // 容器需要添加direction才能变成让子元素flex
+        flex: 1,
         flexDirection: 'row',
     },
     cell: {
         flex: 1,
+        width:(Dimensions.get('window').width/(tabArray.length>5?5:tabArray.length)),
         height: (Dimensions.get('window').height/13),
         backgroundColor: '#00DDAA',
     },
     cellTouch: {
         flex: 1,
+        width:(Dimensions.get('window').width/(tabArray.length>5?5:tabArray.length)),
         height: (Dimensions.get('window').height/13),
         backgroundColor: '#FFFFFF'
     },
