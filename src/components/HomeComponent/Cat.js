@@ -15,21 +15,24 @@ var {
 
 //cat 数据
 var MockData = [{
+    catName : 'MorningMeeting',
     img : 'http://gtms02.alicdn.com/tps/i2/TB1hbkyHpXXXXboXXXXcy0wIpXX-70-70.png',
-    text : '大堂管理',
-    link : 'http://3c.m.tmall.com'
+    text : '晨会一页纸'
+
 },{
+    catName : 'LobbyMgr',
     img : 'http://gtms01.alicdn.com/tps/i1/TB1wpUtHpXXXXb1XVXXcy0wIpXX-70-70.png',
-    text : '场内营销',
-    link : 'http://3c.m.tmall.com'
+    text : '场内营销'
+
 },{
     img : 'http://gtms03.alicdn.com/tps/i3/TB14NwyHpXXXXaUXXXXcy0wIpXX-70-70.png',
-    text : '理财工具',
+    text : '利率汇率',
     link : 'http://3c.m.tmall.com'
 },{
+    catName : 'LobbyMgr',
     img : 'http://gtms04.alicdn.com/tps/i4/TB1ODktHpXXXXXZXVXXcy0wIpXX-70-70.png',
-    text : '产品展示',
-    link : 'http://3c.m.tmall.com'
+    text : '计算器'
+
 }];
 
 // 组件样式
@@ -64,8 +67,9 @@ var styles = StyleSheet.create({
 
 module.exports = React.createClass({
 
-    _appendEven: function(){
-        this.props.navigator.push({name:'CustomList'});
+    _appendEven() {
+        var router={name:"MorningMeeting"};
+        this.props.navigator.push(router);
 
     },
     renderItems(data) {
@@ -90,4 +94,4 @@ module.exports = React.createClass({
 
     }
 
-})
+});

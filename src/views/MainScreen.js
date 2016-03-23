@@ -8,14 +8,14 @@ var {
 
 const glypy = glypyMapMaker({
     Home: 'e900',
-    Manager: 'f0c0',
-    Product: 'e902',
+    LobbyMgr: 'f0c0',
+    Fiancial: 'e902',
     Settings: 'e903'
 
 });
 var Home = require('./../components/HomeComponent');
 var LobbyMgr=require('./../components/LobbyMgrComponent');
-var Fund=require('./../components/FinancialComponent');
+var Fiancial=require('./../components/FinancialComponent');
 var MainScreen = React.createClass({
     _tabbarToggle(value) {
         this.refs['myTabbar'].getBarRef().show(value);
@@ -24,32 +24,32 @@ var MainScreen = React.createClass({
     render: function () {
         return (
             <Tabbar ref="myTabbar" barColor={'#eeeeee'} initialTab={this.props.initialTab}>
-                <Tab name="home">
+                <Tab name="Home">
                     <IconWithBar label=" 首页" type={glypy.Home} from={'icomoon'}/>
                     <RawContent>
-                        <Home  navigator={this.props.navigator}/>
+                        <Home/>
 
                     </RawContent>
 
                 </Tab>
 
-                <Tab name="manager">
-                    <IconWithBar label="大堂管理" type={glypy.Manager} from={'FontAwesome'}/>
+                <Tab name="LobbyMgr">
+                    <IconWithBar label="大堂管理" type={glypy.LobbyMgr} from={'FontAwesome'}/>
                     <RawContent>
                         <LobbyMgr/>
                     </RawContent>
 
                 </Tab>
 
-                <Tab name="stats">
-                    <IconWithBar label="理财产品" type={glypy.Product} from={'icomoon'}/>
+                <Tab name="Fiancial">
+                    <IconWithBar label="理财产品" type={glypy.Fiancial} from={'icomoon'}/>
                     <RawContent>
-                        <Fund navigator={this.props.navigator} mainScreen={this}/>
+                        <Fiancial navigator={this.props.navigator} mainScreen={this}/>
                     </RawContent>
 
                 </Tab>
 
-                <Tab name="settings">
+                <Tab name="Settings">
                     <IconWithBar label="我的设置" type={glypy.Settings} from={'icomoon'}/>
                     <RawContent>
                         <Text>我的设置</Text>

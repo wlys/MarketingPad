@@ -19,36 +19,29 @@ var App = React.createClass({
         var Component = null;
         this._navigator = navigator;
         switch (router.name) {
-            case "MainScreen":
-                return <MainScreen navigator={navigator} initialTab="home" />
+            case "Home":
+                return <MainScreen initialTab="Home" />
+            case "LobbyMgr":
+                return <MainScreen initialTab="LobbyMgr" />
+            case "Fiancail":
+                return <MainScreen initial Tab="Fiancial"/>
+            case "Settings":
+                return <MainScreen initial Tab="Settings"/>
             default: //default view
-                return <MainScreen navigator={navigator} initialTab="manager" />
+                return <MainScreen  initialTab="LobbyMgr" />
         }
 
     },
 
     render: function() {
-        //var defaultName = 'FirstPageComponent';
-        //var defaultComponent = FirstPageComponent;
-/*        <Navigator
-            initialRoute={{ name: defaultName, component: defaultComponent }}
-            configureScene={(route) => {
-                    return Navigator.SceneConfigs.VerticalDownSwipeJump;
-                }}
-            renderScene={(route, navigator) => {
-                    let Component = route.component;
-                    return <Component {...route.params} navigator={navigator} />
-                }}
-        />*/
-//why use Navigator
         return (
             <Navigator
-                initialRoute={{name: 'MainScreen'}}
+                initialRoute={{name: 'Home'}}
                 configureScene={this._configureScene}
                 renderScene={this._renderScene}/>
         );
     }
 
-})
+});
 
 module.exports =App;
