@@ -27,7 +27,7 @@ var DRAWER_WIDTH_LEFT = 56;
 var toolbarActions = [
     //{title: '退出登录', show: 'ifRoom'}
     //{title: '设置选项', show: 'never'}
-    {title: 'note_list', icon: require('./../../styles/slgimg/ic_message_white_96_96.png'), show: 'always'},
+    {title: 'note_list', icon: require('./../../styles/slgimg/ic_message_white_96_96.png'), show: 'always'}
 ];
 
 

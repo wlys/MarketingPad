@@ -1,9 +1,3 @@
-/**
- * Created by liu on 2016/3/3.
- */
-/**
- * Created by liu on 2016/3/2.
- */
 'use strict';
 var React = require('react-native');
 
@@ -15,8 +9,13 @@ var {
     Image,
     View,
     ToolbarAndroid,
-    Component
+    Component,
+    Dimensions
     } = React;
+var { width, height, scale } = Dimensions.get('window');
+width = width/2 -2;
+height = 110;
+
 
 class ShowListContainer extends Component {
 
@@ -33,14 +32,14 @@ class ShowListContainer extends Component {
                         </View>
                         <View style={styles.container}>
                             <View style={styles.containerleft}>
-                                <Text style={{flex:1,fontSize:20,color:'red'}}> 4.2%</Text>
-                                <Text style={{flex:1,fontSize:16,color:'#000'}}>预期收益</Text>
+                                <Text style={{flex:1,fontSize:22,color:'red'}}> 4.2%</Text>
+                                <Text style={{flex:1,fontSize:12,color:'#000'}}>预期收益</Text>
                             </View>
 
                             <View style={styles.containerright}>
                                 <Text style={{flex:1,fontSize:14,color:'#000'}}>起点金额：</Text>
                                 <Text style={{flex:1,fontSize:14,color:'#000'}}>产品期限：</Text>
-                                <Text style={{flex:1,fontSize:14,color:'#000'}}>销售地区：</Text>
+                                <Text style={{flex:1,fontSize:14,color:'#000'}}>收益类型：</Text>
                             </View>
                         </View>
                             </View>
@@ -50,8 +49,7 @@ class ShowListContainer extends Component {
         );
     }
 }
-var width = 200;
-var height = 110;
+
 var styles = StyleSheet.create({
     row: {
         justifyContent: 'center',
