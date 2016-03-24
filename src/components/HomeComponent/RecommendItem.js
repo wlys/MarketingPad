@@ -16,9 +16,6 @@ var { width, height, scale } = Dimensions.get('window');
 width = width/2 -2;
 height = 110;
 
-var t1 = "预期收益";
-var t2 = "起点金额";
-
 class RecommendItem extends Component {
 
     render() {
@@ -35,7 +32,7 @@ class RecommendItem extends Component {
                         <View style={styles.container}>
                             <View style={styles.containerleft}>
                                 <Text style={{flex:1,fontSize:22,color:'red'}}> {this.props.rate}</Text>
-                                <Text style={{flex:1,fontSize:12,color:'#000'}}>hello</Text>
+                                <Text style={{flex:1,fontSize:12,color:'#000',textAlign: 'center'}}>近一年涨跌幅</Text>
                             </View>
 
                             <View style={styles.containerright}>

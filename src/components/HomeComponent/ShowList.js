@@ -1,7 +1,7 @@
 'use strict';
 var React = require('react-native');
 var ShowListContainer=require('./ShowListContainer');
-var RecommendItem = require('./RecommendItem_bak');
+var RecommendItem = require('./RecommendItem');
 var {
     StyleSheet,
     TouchableOpacity,
@@ -26,9 +26,9 @@ var {
 //    itemHeight = 99.6;
 //    picFormat = '_1080x260xzq75.jpg';
 //}
-var fundData=[{code:'162712',name:'广发聚利债券',rate:16.2},
-    {code:'519985',name:'长信纯债壹号债券',rate:11.62},
-    {code:'400030',name:'东方添溢债券',rate:10.56}];
+var fundData=[{code:'162712',name:'广发聚利债券',rate:'16.2'},
+    {code:'519985',name:'长信纯债壹号债券',rate:'11.62'},
+    {code:'400030',name:'东方添溢债券',rate:'10.56'}];
 
 
 var ShowList = React.createClass({
