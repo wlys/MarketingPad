@@ -6,17 +6,23 @@
 import App from './views/App'
 import React, {
     AppRegistry,
+    Platform,
 } from 'react-native';
 
 export default function native(platform) {
 
     const MarketingPad = React.createClass ({
         render() {
-            console.log(platform)
-            return (
-                <App />
-            );
+            if (Platform.OS != 'ios') {
+                console.log(platform)
+                return (
+                    <App />
+                );
 
+            }
+            else {
+
+            }
         }
     })
 

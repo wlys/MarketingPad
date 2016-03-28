@@ -6,13 +6,13 @@ var {
     Component
     } = React;
 
-class LogIn extends Component{
+class MyInfo extends Component{
     render(){
         return(
-            <Text>LogIn正在开发中... </Text>
+            <Text>MyInfo正在开发中... </Text>
         );
     }
 }
 
-module.exports=LogIn;
+module.exports=MyInfo;
 

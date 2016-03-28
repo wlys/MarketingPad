@@ -1,52 +1,33 @@
-/**
- * Created by liu on 2016/3/11.
- */
 'use strict';
-var React = require('react-native');
-var {
-    AppRegistry,
-    Navigator,
+
+import React from 'react-native';
+const {
     Component,
+    Text,
+    Navigator,
+    View
     } = React;
-var Manager=require('./Manager');
-var CustomMsg=require('./CustomMsg');
-class index extends Component{
-    _configureScene () {
-        return Navigator.SceneConfigs.HorizontalSwipeJump;
-    }
+import NavigationBar from 'react-native-navbar';
+import InitialScreen from './SetsComponent/InitialScreen';
 
-    _renderScene (router, navigator) {
-        var Component = null;
-       // this._navigator = navigator;
-        switch (router.name) {
-            case "Manager":
-                Component = Manager;
-                break;
-            case "CustomMsg":
-                Component = CustomMsg;
-                break;
-            default: //default view
-                Component = Home;
-        }
+function renderScene(route, navigator) {
+    return <route.component route={route} navigator={navigator} />;
+}
 
-        if(Component===CustomMsg){
-            return(
-                <Component navigator={navigator} msg={router.msg}/>
-            )
-        }
-       else  return <Component navigator={navigator}/>
-    }
-
+class index extends Component {
     render() {
+        const initialRoute = {
+            component: InitialScreen
+        };
 
         return (
-
-            <Navigator
-                initialRoute={{name: 'Manager'}}
-                configureScene={this._configureScene}
-                renderScene={this._renderScene}/>
-
+            <View style={{ flex: 1, }}>
+                <Navigator
+                    initialRoute={initialRoute}
+                    renderScene={renderScene}/>
+            </View>
         );
     }
 }
+
 module.exports =index;
