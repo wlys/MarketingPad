@@ -7,7 +7,7 @@ const {
     Navigator,
     View
     } = React;
-import NavigationBar from 'react-native-navbar';
+import NavigationBar from '../_thirdpartComponent/NavBar';
 import InitialScreen from './SetsComponent/InitialScreen';
 
 function renderScene(route, navigator) {
