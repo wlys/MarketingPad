@@ -38,7 +38,8 @@ var App = React.createClass({
             <Navigator
                 initialRoute={{name: 'Home'}}
                 configureScene={this._configureScene}
-                renderScene={this._renderScene}/>
+                renderScene={this._renderScene}
+            />
         );
     }
 

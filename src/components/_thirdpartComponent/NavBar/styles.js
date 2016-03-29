@@ -1,4 +1,12 @@
-const NAV_BAR_HEIGHT = 44;
+'use strict';
+
+var React = require('react-native');
+
+var {
+    Dimensions,
+    } = React;
+
+const NAV_BAR_HEIGHT = (Dimensions.get('window').height/13);
 const STATUS_BAR_HEIGHT = 20;
 
 module.exports = {

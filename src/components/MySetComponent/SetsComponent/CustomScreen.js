@@ -6,7 +6,7 @@ const {
     Component,
     View
     } = React;
-import NavigationBar from 'react-native-navbar';
+import NavigationBar  from '../../_thirdpartComponent/NavBar';
 
 export default class CustomScreen extends Component {
     render() {

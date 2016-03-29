@@ -7,8 +7,11 @@ import React, {
     StyleSheet,
     View,
 } from 'react-native';
+import NavigationBar from '../_thirdpartComponent/NavBar';
+import InitialScreen from './SetsComponent/InitialScreen';
 
 import SetHome from './SetHome'
+
 
 /*
 var toolbarActions = [
