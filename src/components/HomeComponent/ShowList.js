@@ -1,7 +1,6 @@
 'use strict';
 var React = require('react-native');
-var ShowListContainer=require('./ShowListContainer');
-var RecommendItem = require('./RecommendItem');
+
 var {
     StyleSheet,
     TouchableOpacity,
@@ -14,6 +13,9 @@ var {
     ScrollView,
     Dimensions
     } = React;
+
+var ShowListContainer=require('./ShowListContainer');
+var RecommendItem = require('./RecommendItem');
 //var { width, height, scale } = Dimensions.get('window');
 //
 //var itemHeight = 100,
@@ -29,40 +31,29 @@ var {
 var fundData=[{code:'162712',name:'广发聚利债券',rate:'16.2'},
     {code:'519985',name:'长信纯债壹号债券',rate:'11.62'},
     {code:'400030',name:'东方添溢债券',rate:'10.56'}];
-
+var code1 = '162712';
 
 var ShowList = React.createClass({
 
-    _renderItems(arrayData){
-
+       _renderItems(arrayData){
         return arrayData.map(function (items, i) {
             return (
-                <RecommendItem name={items.name} rate={items.rate} />
+                <RecommendItem code={items.code} name={items.name} rate={items.rate} navigator={this.props.navigator}  />
             );
-        });
+        }.bind(this));
     },
+    
 
     render: function() {
         return (
             <View>
                 <Text style={{flex:1,fontSize:18,color:'#3366cc'}}>今日推荐</Text>
-                <ScrollView horizontal={true} >
+                <ScrollView horizontal={true}>
                     {this._renderItems(fundData)}
                 </ScrollView>
 
                 <Text style={{flex:1,fontSize:18,color:'#cc0000'}}>收益TOP5</Text>
-
-                <ScrollView
-                    //ref='scrollView'
-                    //contentContainerStyle={styles.container}
-                    //automaticallyAdjustContentInsets={false}
-                    horizontal={true}
-                    //pagingEnabled={true}
-                    //scrollEnabled={false}
-                    //showsHorizontalScrollIndicator={false}
-                    //sendMomentumEvents={true}
-                    // onScrollBeginDrag={this._onScrollBegin}
-                    >
+                <ScrollView horizontal={true}>
                     <ShowListContainer/>
                     <ShowListContainer/>
                     <ShowListContainer/>

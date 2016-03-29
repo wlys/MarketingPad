@@ -94,10 +94,14 @@ var home =  React.createClass({
             <View style={{flex : 1}}>
 
                 {this._renderHeader()}
+
                 <ScrollView stickyHeaderIndices={[4]}style={{flex:1}} >
+
                     <TopScreen style={{flex:1}} />
-                    <Cat  navigator={this.props.navigator}/>
-                    <ShowList/>
+
+                    <ShowList navigator={this.props.navigator} />
+
+                    <Cat />
 
                 </ScrollView>
 

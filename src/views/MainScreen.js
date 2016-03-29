@@ -33,10 +33,8 @@ var MainScreen = React.createClass({
                 <Tab name="Home">
                     <IconWithBar label=" 首页" {...tabBarProps} type={glypy.Home} from={'icomoon'}/>
                     <RawContent>
-                        <Home/>
-
+                        <Home mainScreen={this}/>
                     </RawContent>
-
                 </Tab>
 
                 <Tab name="LobbyMgr">
@@ -44,15 +42,13 @@ var MainScreen = React.createClass({
                     <RawContent>
                         <LobbyMgr  tabBarShow={(enable)=>this._tabbarToggle(enable)}/>
                     </RawContent>
-
                 </Tab>
 
                 <Tab name="Fiancial">
                     <IconWithBar label="理财产品"  {...tabBarProps} type={glypy.Fiancial} from={'icomoon'}/>
                     <RawContent>
-                        <Fiancial navigator={this.props.navigator} mainScreen={this}/>
+                        <Fiancial mainScreen={this}/>
                     </RawContent>
-
                 </Tab>
                 <Tab name="settings">
                     <IconWithBar label="我的"  {...tabBarProps} type={glypy.Settings} from={'icomoon'}/>

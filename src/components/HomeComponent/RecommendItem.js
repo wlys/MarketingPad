@@ -16,11 +16,16 @@ var { width, height, scale } = Dimensions.get('window');
 width = width/2 -2;
 height = 110;
 
-class RecommendItem extends Component {
+var RecommendItem = React.createClass({
+
+    _tabSelectedEvent(msg){
+        var router ={name:"FundDetail",msg:msg};
+        this.props.navigator.push(router) ;
+    },
 
     render() {
         return (
-            <TouchableOpacity>
+            <TouchableOpacity onPress={()=>this._tabSelectedEvent(this.props.code)}>
                 <View style={styles.row}>
 
                         <View style={{flex :1,backgroundColor: '#eeeeee',opacity:0.9}}>
@@ -47,7 +52,7 @@ class RecommendItem extends Component {
             </TouchableOpacity>
         );
     }
-}
+})
 
 var styles = StyleSheet.create({
     row: {

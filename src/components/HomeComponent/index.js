@@ -9,12 +9,13 @@ var {
 
 var Home = require('./home');
 var MorningMeeting = require('./MorningMeeting');
-//var MainScreen = require('./../../views/MainScreen');
-//var Cat = require('./Cat')
+var FundDetail = require('./../FinancialComponent/FundDetail');
+
 
 var index =React.createClass({
+
     _configureScene () {
-    return Navigator.SceneConfigs.HorizontalSwipeJump;
+    return Navigator.SceneConfigs.PushFromRight;
     },
 
     _renderScene (router, navigator) {
@@ -27,10 +28,13 @@ var index =React.createClass({
             case "MorningMeeting":
                 Component = MorningMeeting;
                 break;
+            case "FundDetail":
+                Component = FundDetail;
+                break;
             default: //default view
                 Component = Home;
         }
-        return <Component navigator={navigator} router={router} />;
+        return <Component navigator={navigator} router={router} mainScreen={this.props.mainScreen}/>;
     },
 
 
