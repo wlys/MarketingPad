@@ -13,7 +13,7 @@ var {
     BackAndroid,
     } = React;
 var ToolbarAndroid = require('ToolbarAndroid');
-
+var NavigationBar = require( '../_thirdpartComponent/NavBar');
 
 var DetailHeader = React.createClass({
     _tabSelectedEvent(){
@@ -38,13 +38,21 @@ var DetailHeader = React.createClass({
     },
 
     render: function() {
+        const leftButtonConfig = {
+            title: String.fromCharCode(parseInt('f142',16)),
+            handler: () => this._tabSelectedEvent(),
+
+            styleText:{
+                fontFamily:'Entypo',
+                fontSize:40,
+            },
+        };
         this.props.mainScreen._tabbarToggle(false);
         return (
-            <ToolbarAndroid
-                navIcon={require('../LobbyMgrComponent/image/ic_comment_white.png')}
-                onIconClicked={() => this._tabSelectedEvent()}
-                style={styles.toolbar}
-                title={this.props.title} />
+            <NavigationBar
+                title={{ title: this.props.title, }}
+                leftButton={leftButtonConfig}
+                tintColor='#00DDAA' />
         );
     }
 });
