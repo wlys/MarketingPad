@@ -22,6 +22,8 @@ var Cat = require('./Cat');
 var ShowList=require('./ShowList');
 
 var ThemesList = require('./ThemesList');
+var Login = require('./login');
+
 var DRAWER_REF = 'drawer';
 var DRAWER_WIDTH_LEFT = 56;
 var toolbarActions = [
@@ -55,9 +57,10 @@ var home =  React.createClass({
     },
     _renderNavigationView: function() {
         return (
-            <ThemesList
-                onSelectItem={this.onSelectTheme}
-                />
+            //<ThemesList
+            //    onSelectItem={this.onSelectTheme}
+            //    />
+            <Login />
         );
     },
 

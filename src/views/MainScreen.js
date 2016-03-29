@@ -16,6 +16,8 @@ const glypy = glypyMapMaker({
 var Home = require('./../components/HomeComponent');
 var LobbyMgr=require('./../components/LobbyMgrComponent');
 var Fiancial=require('./../components/FinancialComponent');
+var MySet=require('./../components/MySetComponent');
+
 var MainScreen = React.createClass({
     _tabbarToggle(value) {
         this.refs['myTabbar'].getBarRef().show(value);
@@ -48,11 +50,10 @@ var MainScreen = React.createClass({
                     </RawContent>
 
                 </Tab>
-
-                <Tab name="Settings">
-                    <IconWithBar label="我的设置" type={glypy.Settings} from={'icomoon'}/>
+                <Tab name="settings">
+                    <IconWithBar label="我的" type={glypy.Settings} from={'icomoon'}/>
                     <RawContent>
-                        <Text>我的设置</Text>
+                        <MySet />
                     </RawContent>
 
                 </Tab>

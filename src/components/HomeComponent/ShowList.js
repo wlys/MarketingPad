@@ -39,7 +39,7 @@ var ShowList = React.createClass({
             return (
                 <RecommendItem name={items.name} rate={items.rate} />
             );
-        }.bind(this));
+        });
     },
 
     render: function() {

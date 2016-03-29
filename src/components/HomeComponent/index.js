@@ -7,7 +7,7 @@ var {
     BackAndroid,
     } = React;
 
-var Home = require('./Home');
+var Home = require('./home');
 var MorningMeeting = require('./MorningMeeting');
 //var MainScreen = require('./../../views/MainScreen');
 //var Cat = require('./Cat')
