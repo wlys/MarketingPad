@@ -13,7 +13,7 @@ export default function native(platform) {
 
     const MarketingPad = React.createClass ({
         render() {
-            if (Platform.OS != 'ios') {
+            if (Platform.OS === 'android') {
                 console.log(platform)
                 return (
                     <App />
