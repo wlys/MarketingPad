@@ -1,3 +1,5 @@
 rootProject.name = 'MarketingPad'
 
 include ':app'
+include ':react-native-chart-android'
+project(':react-native-chart-android').projectDir = new File(rootProject.projectDir, './react-native-chart-android/android')

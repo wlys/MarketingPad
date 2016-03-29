@@ -17,6 +17,11 @@ var LobbyMgr=require('./../components/LobbyMgrComponent');
 var Fiancial=require('./../components/FinancialComponent');
 var MySet=require('./../components/MySetComponent');
 
+var tabBarProps={};
+tabBarProps['onActiveColor']='#009900';
+tabBarProps['onInactiveColor']='gray';
+tabBarProps['onActiveColorBar']='#009900';
+tabBarProps['onInactiveColorBar']='#fff';
 var MainScreen = React.createClass({
     _tabbarToggle(value) {
         this.refs['myTabbar'].getBarRef().show(value);
@@ -26,7 +31,7 @@ var MainScreen = React.createClass({
         return (
             <Tabbar ref="myTabbar" barColor={'#eeeeee'} initialTab={this.props.initialTab}>
                 <Tab name="Home">
-                    <IconWithBar label=" 首页" type={glypy.Home} from={'icomoon'}/>
+                    <IconWithBar label=" 首页" {...tabBarProps} type={glypy.Home} from={'icomoon'}/>
                     <RawContent>
                         <Home/>
 
@@ -35,22 +40,22 @@ var MainScreen = React.createClass({
                 </Tab>
 
                 <Tab name="LobbyMgr">
-                    <IconWithBar label="大堂管理" type={glypy.LobbyMgr} from={'FontAwesome'}/>
+                    <IconWithBar label="大堂管理"  {...tabBarProps} type={glypy.LobbyMgr} from={'FontAwesome'}/>
                     <RawContent>
-                        <LobbyMgr/>
+                        <LobbyMgr  tabBarShow={(enable)=>this._tabbarToggle(enable)}/>
                     </RawContent>
 
                 </Tab>
 
                 <Tab name="Fiancial">
-                    <IconWithBar label="理财产品" type={glypy.Fiancial} from={'icomoon'}/>
+                    <IconWithBar label="理财产品"  {...tabBarProps} type={glypy.Fiancial} from={'icomoon'}/>
                     <RawContent>
                         <Fiancial navigator={this.props.navigator} mainScreen={this}/>
                     </RawContent>
 
                 </Tab>
                 <Tab name="settings">
-                    <IconWithBar label="我的" type={glypy.Settings} from={'icomoon'}/>
+                    <IconWithBar label="我的"  {...tabBarProps} type={glypy.Settings} from={'icomoon'}/>
                     <RawContent>
                         <MySet />
                     </RawContent>
