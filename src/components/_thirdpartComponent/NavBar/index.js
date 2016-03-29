@@ -14,6 +14,7 @@ import styles from './styles';
 const ButtonShape = {
   title: PropTypes.string.isRequired,
   style: PropTypes.any,
+  styleText:PropTypes.any,
   handler: PropTypes.func,
 };
 
@@ -60,6 +61,7 @@ class NavigationBar extends Component {
           <NavbarButton
             title={data.title}
             style={[data.style, style, ]}
+            styleText={data.styleText}
             tintColor={data.tintColor}
             handler={data.handler}/>
         )}

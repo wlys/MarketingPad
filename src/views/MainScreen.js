@@ -3,7 +3,6 @@ var React = require('react-native');
 var {
     AppRegistry,
     Text,
-
     } = React;
 
 const glypy = glypyMapMaker({
