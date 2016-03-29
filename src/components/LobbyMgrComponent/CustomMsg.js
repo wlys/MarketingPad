@@ -4,6 +4,13 @@
 
 'use strict';
 var React = require('react-native');
+var MyChart=require('./MyChart');
+var {
+    BarChart,
+    CombinedChart,
+    PieChart,
+    LineChart
+    }=require('../_thirdpartComponent/react-native-chart');
 var {
     AppRegistry,
     Navigator,
@@ -12,12 +19,63 @@ var {
     Component,
     Dimensions,
     StyleSheet,
-    ScrollView
+    ScrollView,
+    BackAndroid,
+    ToastAndroid,
+
     } = React;
 var Manager = require('./Manager');
 var {width, height, scale} = require('./Style');
-class CustomMsg extends Component {
+var FrontStyles=require('./FrontStyles');
+var dataSource4={
+    "entryCount": 3,
+    "xVals": [
+        "A",
+        "B",
+        "C"
+    ],
+    "dataSets": [
+        {
+            "yVals": [
+                0.12,
+                0.38,
+                0.5
+            ],
+            "colors": [
+                "#0066ff",
+                "#006600",
+                "#ff9933"
+            ]
+        }
+    ]
+};
 
+
+class CustomMsg extends Component {
+    componentDidMount(){
+        BackAndroid.addEventListener('hardwareBackPress',function(){
+              this.props.navigator.pop();
+            return true;
+        }.bind(this));
+    }
+    getRandomData(argument) {
+    var data={};
+    data['xValues']=[];
+    data['yValues']=[
+        {
+            data:[],
+            label:'test1',
+            config:{
+                color:'blue'
+            }
+        }
+    ];
+    for (var i = 0; i < 500; i++) {
+        data.xValues.push(i+'');
+        data.yValues[0].data.push(Math.random()*100);
+    };
+    return data;
+}
     _baseMsg() {
         return (
             <View ref='baseMsgView'>
@@ -51,15 +109,32 @@ class CustomMsg extends Component {
         );
     }
 
+
     _assetchg() {
+        var dataSource=dataSource4;
+        var chartStyles={"animateType":"Y","animateY":1500};
+        var yAxis={'position':'LEFT'};
+        var xAxis={'position':'BOTTOM'};
+        var props={};
+        props['dataSource'] = JSON.stringify(dataSource);
+        props['xAxis'] = JSON.stringify(xAxis);
+        props['yAxis'] = JSON.stringify(yAxis);
+
+        props['chartStyles'] = JSON.stringify(chartStyles);
         return (
             <View style={styles.assetChg}>
-                <View>
-                <Text style={styles.titleFront}>资产变动情况</Text>
-                <View style={[styles.line]}/>
+                <View style={{backgroundColor: '#fff',justifyContent:'flex-start'}}>
+                      <Text style={styles.titleFront}>资产分布情况</Text>
+                      <View style={[styles.line]}/>
                 </View>
-                <View style={{flex:1}}>
-                    <Text>123</Text>
+                <View style={{flex:1,height:100 ,padding:5,backgroundColor: '#fff'}}>
+
+                    <PieChart
+                        style={{flex:1}}
+                        {...props}
+
+                        />
+
                 </View>
 
             </View>
@@ -69,11 +144,24 @@ class CustomMsg extends Component {
     _assetmix() {
         return (
             <View style={styles.assetMix}>
-                <View>
-                <Text style={styles.titleFront}>资产分布情况</Text>
-                <View style={[styles.line]}/>
+                <View  style={{justifyContent:'flex-start'}}>
+                       <Text style={styles.titleFront}>资产变动情况</Text>
+                       <View style={[styles.line]}/>
                 </View>
-                <View>
+                <View style={{flex:1,height:100,padding:5}}>
+                    <LineChart
+                        style={{flex:1}}
+                        data={this.getRandomData()}
+                        visibleXRange={[0,30]}
+                        maxVisibleValueCount={50}
+                        xAxis={{drawGridLines:false,gridLineWidth:1,position:"BOTTOM"}}
+                        yAxisRight={{enable:false}}
+                        yAxis={{startAtZero:false,drawGridLines:false,position:"INSIDE_CHART"}}
+                        drawGridBackground={false}
+                        backgroundColor={"WHITE"}
+                        description={"资产变动"}
+                        legend={{enable:true,position:'ABOVE_CHART_LEFT',direction:"LEFT_TO_RIGHT"}}
+                        />
                 </View>
 
             </View>
@@ -88,6 +176,10 @@ class CustomMsg extends Component {
                 <View style={[styles.line]}/>
                 </View>
                 <View>
+                    <Text style={[FrontStyles.custHold,{ color:'#009966'}]}>{String.fromCharCode(parseInt('e902', 16))}  悠然白金卡</Text>
+                    <Text style={[FrontStyles.custHold,{ color:'#009966'}]}>{String.fromCharCode(parseInt('e902', 16))}  网上银行</Text>
+                    <Text style={[FrontStyles.custHold,{ color:'#009966'}]}>{String.fromCharCode(parseInt('e902', 16))}  手机银行</Text>
+                    <Text style={[FrontStyles.custHold,{ color:'#009966'}]}>{String.fromCharCode(parseInt('e902', 16))}  短信通</Text>
 
                 </View>
             </View>
@@ -101,8 +193,10 @@ class CustomMsg extends Component {
                 <Text style={styles.titleFront}>客户未持有产品</Text>
                 <View style={[styles.line]}/>
                 </View>
-                <View>
-
+                <View style={{flex:1}}>
+                    <Text style={[FrontStyles.custHold,{color:'#ff9933'}]}>{String.fromCharCode(parseInt('e902', 16))}  理财账户</Text>
+                    <Text style={[FrontStyles.custHold,{color:'#ff9933'}]}>{String.fromCharCode(parseInt('e902', 16))}  贵金属交易</Text>
+                    <Text style={[FrontStyles.custHold,{color:'#ff9933'}]}>{String.fromCharCode(parseInt('e902', 16))}  贷记卡</Text>
                 </View>
             </View>
         );
@@ -153,10 +247,10 @@ class CustomMsg extends Component {
 
 
                     { this._baseMsg()}
-                    <View style={styles.assert}>
+
                         {this._assetchg()}
                         {this._assetmix()}
-                    </View>
+
                     <View  style={styles.hold}>
                         { this._custhold()}
                         {this._custnothold()}
@@ -191,6 +285,7 @@ var styles = StyleSheet.create({
     page: {
         flex: 1,
         padding: 10
+
     },
     baseMsg: {
        // backgroundColor: 'red',
@@ -209,31 +304,34 @@ var styles = StyleSheet.create({
     },
     assert:{
        // backgroundColor: 'green',
-        flexDirection: 'row',
-        height:height*0.28,
+       // flexDirection: 'row',
+       // height:height*0.35,
         justifyContent:'space-between'
     },
     assetChg:{
        // backgroundColor: 'green',
         //flexDirection: 'row',
-        width:width*0.42,
+        //width:width*0.42,
+        height:height*0.35,
         justifyContent:'flex-start'
     },
     assetMix:{
        // backgroundColor: 'red',
        // flexDirection: 'row',
-        width:width*0.42
+       // width:width*0.42
+        justifyContent:'flex-start'
     },
     hold:{
         //backgroundColor: 'yellow',
-        flexDirection: 'row',
-        height:height*0.20,
+       flexDirection: 'row',
+        height:height*0.4,
         justifyContent:'space-between'
     },
     custHold:{
       //  backgroundColor: 'green',
       //  flexDirection: 'row',
-        width:width*0.42
+        width:width*0.42,
+        justifyContent:'flex-start'
     },
     custNotHold:{
      //   backgroundColor: 'red',

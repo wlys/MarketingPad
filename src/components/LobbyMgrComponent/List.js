@@ -36,35 +36,37 @@ class List extends Component {
                 renderRow={this._renderRow.bind(this)}/>
         );
     }
-    _tabSelectedEvent(msg){
-        var router ={name:'CustomMsg',msg:msg};
-        this.props.navigator.push(router) ;
+
+    _tabSelectedEvent(msg) {
+        var router = {name: 'CustomMsg', msg: msg};
+        this.props.navigator.push(router);
     }
+
     _renderRow(rowData:json, sectionID:number, rowID:number) {
 
         return (
             <TouchableOpacity onPress={()=>this._tabSelectedEvent.bind(this)(rowData.name)}>
-                    <View style={styles.row}>
-                        <View style={styles.rowleft}>
-                            <Text style={{flex:1,fontSize:12,color:'#000'}}>
-                                {rowData.num}
-                            </Text>
-                            <Text style={{flex:1,fontSize:12,color:'green'}}>
-                                {rowData.waitTime }分钟
-                            </Text>
-                        </View>
-                        <View  style={styles.rowmid}>
-                            <Text style={{flex:1,fontSize:14,color:'#000'}}>
-                                {rowData.name}
-                            </Text>
+                <View style={styles.row}>
+                    <View style={styles.rowleft}>
+                        <Text style={{flex:1,fontSize:12,color:'#000',fontFamily: 'sans-serif-thin'}}>
+                            {rowData.num}
+                        </Text>
+                        <Text style={{flex:1,fontSize:12,color:'green', fontFamily: 'sans-serif-thin'}}>
+                            {rowData.waitTime }分钟
+                        </Text>
+                    </View>
+                    <View style={styles.rowmid}>
+                        <Text style={{flex:1,fontSize:14,color:'#000'}}>
+                            {rowData.name}
+                        </Text>
 
-                            <Text style={{flex:1,fontSize:12,color:'gray'}}>
-                                {rowData.account}
-                            </Text>
-
-                        </View>
+                        <Text style={{flex:1,fontSize:12,color:'gray', fontFamily: 'sans-serif-thin'}}>
+                            {rowData.account}
+                        </Text>
 
                     </View>
+
+                </View>
             </TouchableOpacity>
         );
     }
@@ -78,8 +80,9 @@ var styles = StyleSheet.create({
         height: height * 0.1,
         padding: 1,
         borderWidth: 1,
-        backgroundColor: '#fff',
-        borderColor: 'rgba(0,0,0,0.1)',
+        borderRadius: 5,
+        backgroundColor: 'rgba(255,255,255,1)',
+        borderColor: 'rgba(0,0,0,0.1)'
     },
     rowleft: {
 
@@ -88,8 +91,8 @@ var styles = StyleSheet.create({
         height: height * 0.1,
         padding: 10,
         //borderWidth: 1,
-       // backgroundColor: '#fff',
-        borderColor: 'rgba(0,0,0,0.1)',
+        // backgroundColor: '#fff',
+        // borderColor: 'rgba(0,0,0,0.1)',
     },
     rowmid: {
 
@@ -99,10 +102,10 @@ var styles = StyleSheet.create({
         padding: 10,
         //borderWidth: 1,
         // backgroundColor: '#fff',
-        borderColor: 'rgba(0,0,0,0.1)',
+        // borderColor: 'rgba(0,0,0,0.1)',
     },
     list: {
-       // marginTop: 2,
+        // marginTop: 2,
         justifyContent: 'space-around',
         //flexDirection: 'row',
         flexWrap: 'wrap',

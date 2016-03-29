@@ -38,12 +38,22 @@ var FrontStyles=require('./FrontStyles');
 var TellerData = [{
     CounterNum: 1,
     TellerNum: "1000",
-    Busi: ["0001", "0002"]
+    Busi: ["现金", "对公"]
 }, {
     CounterNum: 2,
     TellerNum: "1001",
-    Busi: ["0001", "0002"]
+    Busi: ["理财", "VIP"]
 },
+    {
+        CounterNum: 3,
+        TellerNum: "1002",
+        Busi: ["现金"]
+    },
+    {
+        CounterNum: 4,
+        TellerNum: "1003",
+        Busi: ["对公"]
+    },
 ];
 var toolbarActions = [
     {title: '客户检索',icon:require('./image/search.png'), show: 'always'},
@@ -65,9 +75,21 @@ var listdata1 = [
 
 
 ];
+var listdata3 = [
+    {name:'刘孟轩',num:'V001',account:'1234567890123456',waitTime:'15'},
+    {name:'刘孟轩',num:'V001',account:'1234567890123456',waitTime:'15'},
+    {name:'刘孟轩',num:'V001',account:'1234567890123456',waitTime:'15'},
+    {name:'刘孟轩',num:'V001',account:'1234567890123456',waitTime:'15'},
+    {name:'刘孟轩',num:'V001',account:'1234567890123456',waitTime:'15'},
+    {name:'刘孟轩',num:'V001',account:'1234567890123456',waitTime:'15'},
+    {name:'刘孟轩',num:'V001',account:'1234567890123456',waitTime:'15'},
+    {name:'刘孟轩',num:'V001',account:'1234567890123456',waitTime:'15'},
+    {name:'刘孟轩',num:'V001',account:'1234567890123456',waitTime:'15'}
 
+
+];
 var listdata2 = [{name:'杨永向',num:'A001',account:'1234567890123456',waitTime:'15'}];
-var CustomData=[listdata1,listdata2];
+var CustomData=[listdata1,listdata2,listdata3];
 class Manager extends Component {
     // 构造
     constructor(props) {
@@ -88,27 +110,35 @@ class Manager extends Component {
         }
 
     }
+    _talkEvent(i) {
+        if(i!=this.state.activityTab) return;
+       var router ={name:'Talk'};
+        this.props.navigator.push(router);
 
+
+    }
     _renderTabItems(tellerData) {
         return tellerData.map(function (items, i) {
             return (
-                <TouchableOpacity onPress={()=>this._tabSelectedEvent(i)}>
+                <TouchableOpacity  onPress={()=>this._tabSelectedEvent(i)}>
+
                     <View style={[styles.tab,{opacity:i==this.state.activityTab?1:0.3}]}>
                         <View style={[styles.tabTitle,{marginTop:2}]}>
                             <Text style={FrontStyles.tabTitle}>{items.CounterNum} 号 窗 口</Text>
                         </View>
                         <View style={[styles.tabTitle,{marginTop:2}]}>
-                            <Text style={FrontStyles.label}>{items.TellerNum}</Text>
+                            <Text style={FrontStyles.tellerNum}>{items.TellerNum}</Text>
                         </View>
                         <View style={[styles.msgRow,{marginTop:2}]}>
-                            <Text style={FrontStyles.label}>业 务：{items.Busi + ''}</Text>
+                            <Text style={FrontStyles.label}>可办业务:{items.Busi + ''}</Text>
                         </View>
-                        <TouchableOpacity onPress={()=>this._tabSelectedEvent(i)}>
+                        <TouchableOpacity onPress={()=>this._talkEvent(i)}>
                         <View style={[styles.msgRow,{marginTop:20}]}>
                             <Text style={FrontStyles.talk}>交 谈</Text>
                         </View>
                         </TouchableOpacity>
                     </View>
+
 
                 </TouchableOpacity>
             )
@@ -135,7 +165,7 @@ class Manager extends Component {
         return (
 
             <ToolbarAndroid
-                navIcon={require('./../../styles/img/bunny.png')}
+                navIcon={require('image!ic_menu_white')}
                 title={title}
                 titleColor="white"
                 style={styles.toolbar}
@@ -154,8 +184,15 @@ class Manager extends Component {
                 keyboardDismissMode="on-drag"
                 drawerPosition={DrawerLayoutAndroid.positions.Right}
                 renderNavigationView={this._renderNavigationView}>
-            <View style={{flex:1}}>
+            <View style={{flex:1,backgroundColor: 'rgba(52,63,81,1)'}}>
                 {this._renderHeader()}
+                <View style={{flexDirection: 'row'}}>
+                    <View style={{backgroundColor: 'rgba(214,73,5,0.5)',height:10,width:5}}/>
+
+                    <Text style={{color:'green'}}>柜员信息</Text>
+
+                </View>
+                <View style={[styles.line]}/>
                 <View>
                     <ScrollView style={styles.scrollView}
                                 horizontal={true}
@@ -163,6 +200,11 @@ class Manager extends Component {
                         {this._renderTabItems(TellerData)}
                     </ScrollView>
                 </View>
+                <View style={{flexDirection: 'row'}}>
+                    <View style={{backgroundColor: 'rgba(214,73,5,0.5)',height:10,width:5}}/>
+                        <Text style={{color: 'yellow'}}>排队顾客</Text>
+                </View>
+                <View style={[styles.line]}/>
                 <View style={styles.listContainer}>
                     <ScrollView ref='scrollView'style={{flex:1}}
                                 scrollEnabled={false}
@@ -184,21 +226,28 @@ var styles = StyleSheet.create({
         flex: 1,
         //padding: 2,
     },
+    line: {
+        marginTop:1,
+        height: 3,
+        backgroundColor: 'rgba(214,73,5,0.5)'
+    },
     tab: {
         flex: 1,
-        backgroundColor: '#fff',
+        backgroundColor: 'rgba(255,255,255,1)',
         height: height * 0.25,
         width: width * 0.33,
         borderWidth: 1,
         padding: 2,
-        borderColor: 'rgba(0,0,0,0.1)',
+        borderColor: 'rgba(0,0,0,0.5)',
+        borderRadius:5,
 
     },
     listView: {
         flex: 1,
         width: width,
+        backgroundColor: 'rgba(255,255,255,0.1)',
         //padding: 1,
-        height: height * 0.75-75
+        height: height * 0.75-120
 
     },
     listContainer: {
