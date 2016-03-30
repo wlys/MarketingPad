@@ -10,7 +10,7 @@ var {
 var Home = require('./home');
 var MorningMeeting = require('./MorningMeeting');
 var FundDetail = require('./../FinancialComponent/FundDetail');
-
+var Login = require('./login');
 
 var index =React.createClass({
 
@@ -30,6 +30,9 @@ var index =React.createClass({
                 break;
             case "FundDetail":
                 Component = FundDetail;
+                break;
+            case "Login":
+                Component = Login;
                 break;
             default: //default view
                 Component = Home;

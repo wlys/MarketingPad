@@ -16,7 +16,7 @@ var{
     ScrollView,
     }=React;
 
-var Tabs = require('./Tabs');
+var HomeHeader = require('./HomeHeader');
 var TopScreen=require('./TopScreen');
 var Cat = require('./Cat');
 var ShowList=require('./ShowList');
@@ -57,10 +57,7 @@ var home =  React.createClass({
     },
     _renderNavigationView: function() {
         return (
-            //<ThemesList
-            //    onSelectItem={this.onSelectTheme}
-            //    />
-            <Login />
+           <Text> xxxx</Text>
         );
     },
 
@@ -68,15 +65,16 @@ var home =  React.createClass({
     _renderHeader() {
         var title = this.state.theme ? this.state.theme.name : '中国农业银行';
         return (
+            <HomeHeader navigator={this.props.navigator} title={title} mainScreen={this.props.mainScreen} />
 
-                    <ToolbarAndroid
+                  /*  <ToolbarAndroid
                         navIcon={require('./../../styles/slgimg/ic_menu_white_72_72.png')}
                         title={title}
                         titleColor="white"
                         style={styles.toolbar}
                         actions={toolbarActions}
                         onIconClicked={() => this.refs[DRAWER_REF].openDrawer()}
-                        onActionSelected={this.onActionSelected} />
+                        onActionSelected={this.onActionSelected} /> */
 
         );
     },

@@ -1,0 +1,74 @@
+'use strict';
+
+var React = require('react-native');
+var {
+    StyleSheet,
+    Text,
+    View,
+    Dimensions,
+    BackAndroid,
+    } = React;
+
+var NavigationBar = require( '../_thirdpartComponent/NavBar');
+
+var CatDetailHeader = React.createClass({
+    _tabSelectedEvent(){
+        var router = {name:'Login'};
+        this.props.navigator.push(router);
+        //this.props.mainScreen._tabbarToggle(true);
+    },
+
+    //componentDidMount() {
+    //    var navigator = this.props.navigator;
+    //    var mainScreen = this.props.mainScreen;
+    //    BackAndroid.addEventListener('hardwareBackPress', function() {
+    //        if (navigator && navigator.getCurrentRoutes().length > 1) {
+    //            mainScreen._tabbarToggle(true);
+    //            navigator.pop();
+    //            return true;
+    //        }
+    //        return false;
+    //    });
+    //},
+    //componentWillUnmount() {
+    //    BackAndroid.removeEventListener('hardwareBackPress');
+    //},
+
+    render: function() {
+        const leftButtonConfig = {
+            title: String.fromCharCode(parseInt('f142',16)),
+            handler: () => this._tabSelectedEvent(),
+
+            styleText:{
+                fontFamily:'Entypo',
+                fontSize:40,
+            },
+        };
+        const rightButtonConfig = {
+            title: String.fromCharCode(parseInt('f142',16)),
+            //handler: () => this._tabSelectedEvent(),
+
+            styleText:{
+                fontFamily:'Entypo',
+                fontSize:40,
+            },
+        };
+        //this.props.mainScreen._tabbarToggle(false);
+        return (
+            <NavigationBar
+                title={{ title: this.props.title, }}
+                leftButton={leftButtonConfig}
+                rightButton={rightButtonConfig}
+                tintColor='white' />
+        );
+    }
+});
+
+var styles = StyleSheet.create({
+    toolbar: {
+        backgroundColor: '#00DDAA',
+        height:  (Dimensions.get('window').height/13),
+    },
+});
+
+module.exports=CatDetailHeader;

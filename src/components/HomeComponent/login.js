@@ -6,6 +6,7 @@ var React = require('react-native');
 var Util = require('../_thirdpartComponent/util/util');
 //var TimerMixin = require('react-timer-mixin');
 //var Store = require('react-native-simple-store');
+var LoginHeader = require('./LoginHeader') ;
 
 var {
     AppRegistry,
@@ -124,9 +125,12 @@ var login = React.createClass({
 
     renderLogin:function(){
 
-        var getCode_text = this.state.secondsElapsed==0?'获取验证码':(this.state.secondsElapsed+'秒后重试');
 
+
+        var getCode_text = this.state.secondsElapsed==0?'获取验证码':(this.state.secondsElapsed+'秒后重试');
         return (
+            <View>
+                <LoginHeader navigator={this.props.navigator} title="用户登录" mainScreen={this.props.mainScreen} />
             <Image style={[Util.size,styles.container]} source={require("./../../styles/slgimg/bg_login.jpg")}>
 
                 <View style={styles.loginform}>
@@ -158,7 +162,8 @@ var login = React.createClass({
                         <Text style={{color:'#fff'}}>登录</Text>
                     </TouchableHighlight>
                 </View>
-            </Image>);
+            </Image>
+                </View>);
     },
 
     render: function() {

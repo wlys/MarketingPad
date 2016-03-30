@@ -20,7 +20,7 @@ var MockData = [{
     text : '晨会一页纸'
 
 },{
-    catName : 'MorningMeeting',
+    catName : 'Marketing',
     img : 'http://gtms01.alicdn.com/tps/i1/TB1wpUtHpXXXXb1XVXXcy0wIpXX-70-70.png',
     text : '场内营销'
 
