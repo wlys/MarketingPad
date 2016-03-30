@@ -99,9 +99,11 @@ var home =  React.createClass({
 
                     <TopScreen style={{flex:1}} />
 
+                    <Cat />
+
                     <ShowList navigator={this.props.navigator} />
 
-                    <Cat />
+
 
                 </ScrollView>
 
