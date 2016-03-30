@@ -13,13 +13,16 @@ var {
     AlertIOS
     } = React;
 
+var CatDetailHeader = require('./CatDetailHeader');
+
 module.exports = React.createClass({
     render() {
 
         return (
-
+            <View>
+                <CatDetailHeader navigator={this.props.navigator} title="晨会一页纸" mainScreen={this.props.mainScreen} />
                 <Text>MorningMeeting</Text>
-
+            </View>
         );
     }
 
