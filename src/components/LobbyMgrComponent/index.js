@@ -10,9 +10,10 @@ var {
     } = React;
 var Manager=require('./Manager');
 var CustomMsg=require('./CustomMsg');
+var Talk=require('./../IMComponent/index');
 class index extends Component{
     _configureScene () {
-        return Navigator.SceneConfigs.HorizontalSwipeJump;
+        return Navigator.SceneConfigs.PushFromRight;
     }
 
     _renderScene (router, navigator) {
@@ -23,28 +24,33 @@ class index extends Component{
                 Component = Manager;
                 break;
             case "CustomMsg":
-                Component = CustomMsg;
+                  Component = CustomMsg;
+            break;
+            case "Talk":
+                Component = Talk;
                 break;
             default: //default view
-                Component = Home;
+                Component = Manager;
         }
 
         if(Component===CustomMsg){
             return(
-                <Component navigator={navigator} msg={router.msg}/>
+                <Component navigator={navigator}  msg={router.msg}/>
             )
         }
-       else  return <Component navigator={navigator}/>
+       else  return <Component navigator={navigator} tabBarShow={this.props.tabBarShow}/>
     }
 
     render() {
+
+
 
         return (
 
             <Navigator
                 initialRoute={{name: 'Manager'}}
                 configureScene={this._configureScene}
-                renderScene={this._renderScene}/>
+                renderScene={this._renderScene.bind(this)}/>
 
         );
     }
