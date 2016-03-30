@@ -82,7 +82,7 @@ module.exports = React.createClass({
                 </View>
                     </TouchableOpacity>
             )
-        })
+        }.bind(this))
     },
 
     render() {

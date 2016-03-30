@@ -99,7 +99,7 @@ var home =  React.createClass({
 
                     <TopScreen style={{flex:1}} />
 
-                    <Cat />
+                    <Cat navigator={this.props.navigator} />
 
                     <ShowList navigator={this.props.navigator} />
 
