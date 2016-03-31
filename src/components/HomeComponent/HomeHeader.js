@@ -11,7 +11,7 @@ var {
 
 var NavigationBar = require( '../_thirdpartComponent/NavBar');
 
-var CatDetailHeader = React.createClass({
+var HomeHeader = React.createClass({
     _tabSelectedEvent(){
         var router = {name:'Login'};
         this.props.navigator.push(router);
@@ -36,22 +36,23 @@ var CatDetailHeader = React.createClass({
 
     render: function() {
         const leftButtonConfig = {
-            title: String.fromCharCode(parseInt('f142',16)),
-            handler: () => this._tabSelectedEvent(),
-
+            title: String.fromCharCode(parseInt('f0c9',16)),
             styleText:{
-                fontFamily:'Entypo',
-                fontSize:40,
+                fontFamily:'FontAwesome',
+                fontSize:33,
             },
+            tintColor :'white',
+            handler: () => this._tabSelectedEvent(),
         };
         const rightButtonConfig = {
-            title: String.fromCharCode(parseInt('f142',16)),
-            //handler: () => this._tabSelectedEvent(),
+            title: String.fromCharCode(parseInt('f003',16)),
 
             styleText:{
-                fontFamily:'Entypo',
-                fontSize:40,
+                fontFamily:'FontAwesome',
+                fontSize:33,
             },
+            tintColor :'white',
+            //handler: () => this._tabSelectedEvent(),
         };
         //this.props.mainScreen._tabbarToggle(false);
         return (
@@ -59,16 +60,11 @@ var CatDetailHeader = React.createClass({
                 title={{ title: this.props.title, }}
                 leftButton={leftButtonConfig}
                 rightButton={rightButtonConfig}
-                tintColor='white' />
+                tintColor='#00DDAA' />
         );
     }
 });
 
-var styles = StyleSheet.create({
-    toolbar: {
-        backgroundColor: '#00DDAA',
-        height:  (Dimensions.get('window').height/13),
-    },
-});
 
-module.exports=CatDetailHeader;
+
+module.exports=HomeHeader;
