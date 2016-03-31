@@ -8,13 +8,15 @@ var {
     Navigator,
     Component,
     BackAndroid,
+    Text,
     } = React;
 
 var FinancialHome=require('./FinancialHome');
 var FundDetail=require('./FundDetail');
+var Test=require('./Test');
 var index =React.createClass({
     _configureScene () {
-        return Navigator.SceneConfigs.HorizontalSwipeJump;
+        return Navigator.SceneConfigs.FadeAndroid;
     },
 
     _renderScene (router, navigator) {
@@ -36,12 +38,10 @@ var index =React.createClass({
 
     render() {
         return (
-
             <Navigator
                 initialRoute={{name: 'FinancialHome'}}
                 configureScene={this._configureScene}
                 renderScene={this._renderScene}/>
-
         );
     },
 });

@@ -9,12 +9,13 @@ const glypy = glypyMapMaker({
     Home: 'e900',
     LobbyMgr: 'f0c0',
     Fiancial: 'e902',
-    Settings: 'e903'
-
+    Settings: 'e903',
+    FiancialMarket:'f012'
 });
 var Home = require('./../components/HomeComponent');
 var LobbyMgr=require('./../components/LobbyMgrComponent');
 var Fiancial=require('./../components/FinancialComponent');
+var FiancialMarket=require('./../components/FinancialComponent/FinancialMarketWebView');
 var MySet=require('./../components/MySetComponent');
 
 var tabBarProps={};
@@ -48,6 +49,12 @@ var MainScreen = React.createClass({
                     <IconWithBar label="理财产品"  {...tabBarProps} type={glypy.Fiancial} from={'icomoon'}/>
                     <RawContent>
                         <Fiancial mainScreen={this}/>
+                    </RawContent>
+                </Tab>
+                <Tab name="FiancialMarket">
+                    <IconWithBar label="金融行情"  {...tabBarProps} type={glypy.FiancialMarket} from={'FontAwesome'}/>
+                    <RawContent>
+                        <FiancialMarket/>
                     </RawContent>
                 </Tab>
                 <Tab name="settings">

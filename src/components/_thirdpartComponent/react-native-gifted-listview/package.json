@@ -1,0 +1,87 @@
+{
+  "_args": [
+    [
+      "react-native-gifted-listview",
+      "F:\\android\\MarketingPad"
+    ]
+  ],
+  "_from": "react-native-gifted-listview@*",
+  "_id": "react-native-gifted-listview@0.0.13",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/react-native-gifted-listview",
+  "_nodeVersion": "5.1.1",
+  "_npmOperationalInternal": {
+    "host": "packages-13-west.internal.npmjs.com",
+    "tmp": "tmp/react-native-gifted-listview-0.0.13.tgz_1458163823613_0.04958794196136296"
+  },
+  "_npmUser": {
+    "email": "farid+npm@senseful.fr",
+    "name": "faridsafi"
+  },
+  "_npmVersion": "3.8.1",
+  "_phantomChildren": {},
+  "_requested": {
+    "name": "react-native-gifted-listview",
+    "raw": "react-native-gifted-listview",
+    "rawSpec": "",
+    "scope": null,
+    "spec": "*",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/react-native-gifted-listview/-/react-native-gifted-listview-0.0.13.tgz",
+  "_shasum": "11f6f7ae286740559b50b4145fc72cec482c6f23",
+  "_shrinkwrap": null,
+  "_spec": "react-native-gifted-listview",
+  "_where": "F:\\android\\MarketingPad",
+  "author": {
+    "name": "Farid from Safi"
+  },
+  "bugs": {
+    "url": "https://github.com/FaridSafi/react-native-gifted-listview/issues"
+  },
+  "dependencies": {
+    "react-native-gifted-spinner": "^0.0.3"
+  },
+  "description": "A ListView with pull-to-refresh, infinite scrolling and more for Android and iOS React-Native apps",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "11f6f7ae286740559b50b4145fc72cec482c6f23",
+    "tarball": "http://registry.npmjs.org/react-native-gifted-listview/-/react-native-gifted-listview-0.0.13.tgz"
+  },
+  "gitHead": "115034aaa7fcbbf2b1c6942a77e85643c7d3fbf2",
+  "homepage": "https://github.com/FaridSafi/react-native-gifted-listview#readme",
+  "keywords": [
+    "android",
+    "infinite-scrolling",
+    "ios",
+    "listview",
+    "pull-to-refresh",
+    "react-component",
+    "react-native",
+    "refreshable"
+  ],
+  "license": "MIT",
+  "main": "GiftedListView.js",
+  "maintainers": [
+    {
+      "name": "faridsafi",
+      "email": "farid+npm@senseful.fr"
+    }
+  ],
+  "name": "react-native-gifted-listview",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FaridSafi/react-native-gifted-listview.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.0.13"
+}
