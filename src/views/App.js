@@ -27,7 +27,7 @@ var App = React.createClass({
             () => {
                 this.setState({splashed: true});
             },
-            2000
+            1000
         );
     },
 
