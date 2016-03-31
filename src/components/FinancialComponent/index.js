@@ -13,7 +13,7 @@ var {
 
 var FinancialHome=require('./FinancialHome');
 var FundDetail=require('./FundDetail');
-var Test=require('./Test');
+
 var index =React.createClass({
     _configureScene () {
         return Navigator.SceneConfigs.FadeAndroid;
