@@ -12,7 +12,7 @@ var {
     Dimensions,
     BackAndroid,
     } = React;
-var ToolbarAndroid = require('ToolbarAndroid');
+
 var NavigationBar = require( '../_thirdpartComponent/NavBar');
 
 var DetailHeader = React.createClass({
@@ -24,6 +24,7 @@ var DetailHeader = React.createClass({
     componentDidMount() {
         var navigator = this.props.navigator;
         var mainScreen = this.props.mainScreen;
+
         BackAndroid.addEventListener('hardwareBackPress', function() {
             if (navigator && navigator.getCurrentRoutes().length > 1) {
                 mainScreen._tabbarToggle(true);
@@ -49,19 +50,15 @@ var DetailHeader = React.createClass({
         };
         this.props.mainScreen._tabbarToggle(false);
         return (
+
             <NavigationBar
                 title={{ title: this.props.title, }}
                 leftButton={leftButtonConfig}
-                tintColor='#00DDAA' />
+                 />
         );
     }
 });
 
-var styles = StyleSheet.create({
-    toolbar: {
-        backgroundColor: '#00DDAA',
-        height:  (Dimensions.get('window').height/13),
-    },
-});
+
 
 module.exports=DetailHeader
