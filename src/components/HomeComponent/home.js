@@ -21,7 +21,7 @@ var TopScreen=require('./TopScreen');
 var Cat = require('./Cat');
 var ShowList=require('./ShowList');
 
-var ThemesList = require('./ThemesList');
+
 var Login = require('./login');
 
 var DRAWER_REF = 'drawer';

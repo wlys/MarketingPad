@@ -36,9 +36,9 @@ var code1 = '162712';
 var ShowList = React.createClass({
 
        _renderItems(arrayData){
-        return arrayData.map(function (items, i) {
+        return arrayData.map(function (items, key) {
             return (
-                <RecommendItem code={items.code} name={items.name} rate={items.rate} navigator={this.props.navigator}  />
+                <RecommendItem key={key} code={items.code} name={items.name} rate={items.rate} navigator={this.props.navigator}  />
             );
         }.bind(this));
     },
