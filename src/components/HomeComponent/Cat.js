@@ -73,14 +73,14 @@ module.exports = React.createClass({
 
     },
     renderItems(data) {
-        return data.map(function(items,i){
+        return data.map(function(items,key){
             return (
-                <TouchableOpacity style={{flex:1}} onPress={()=>this._appendEven(items.catName)}>
-                <View style={styles.boxItem}>
-                    <Image key={i} source={{uri : items.img}} style={styles.boxImg} />
-                    <Text style={styles.boxText}>{items.text}</Text>
-                </View>
-                    </TouchableOpacity>
+                <TouchableOpacity key={key} style={{flex:1}} onPress={()=>this._appendEven(items.catName)}>
+                    <View style={styles.boxItem}>
+                        <Image source={{uri : items.img}} style={styles.boxImg} />
+                        <Text  style={styles.boxText}>{items.text}</Text>
+                    </View>
+                </TouchableOpacity>
             )
         }.bind(this))
     },
