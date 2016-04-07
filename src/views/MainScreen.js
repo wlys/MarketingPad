@@ -5,13 +5,14 @@ var {
     Text,
     } = React;
 
+var globalStyles = require('../styles/globalStyles');
+
 const glypy = glypyMapMaker({
     Home: 'e904',
     LobbyMgr: 'e900',
     Fiancial: 'e902',
     FiancialMarket:'f012',
     Settings: 'e901'
-
 });
 var Home = require('./../components/HomeComponent');
 var LobbyMgr=require('./../components/LobbyMgrComponent');
@@ -32,7 +33,7 @@ var MainScreen = React.createClass({
 
     render: function () {
         return (
-            <Tabbar ref="myTabbar" barColor={'#eeeeee'} barSize={60} initialTab={this.props.initialTab}>
+            <Tabbar ref="myTabbar" barColor={'#eeeeee'} barSize={globalStyles.TABBAR_HEIGHT} initialTab={this.props.initialTab}>
                 <Tab name="Home">
                     <IconWithBar label=" 首页" {...tabBarProps} type={glypy.Home} from={'icomoon_slg'} size={26}/>
                     <RawContent>

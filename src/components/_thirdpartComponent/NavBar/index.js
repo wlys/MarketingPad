@@ -86,6 +86,8 @@ class NavigationBar extends Component {
     );
   }
 
+
+
   render() {
     const customTintColor = this.props.tintColor ?
       { backgroundColor: this.props.tintColor } : null;

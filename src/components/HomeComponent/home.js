@@ -16,12 +16,13 @@ var{
     ScrollView,
     }=React;
 
+var globalStyles = require('../../styles/globalStyles');
+var ScrollView_HEIGHT = globalStyles.WINDOW_HEIGHT - globalStyles.NAVBAR_HEIGHT - globalStyles.TABBAR_HEIGHT;
+
 var HomeHeader = require('./HomeHeader');
 var TopScreen=require('./TopScreen');
 var Cat = require('./Cat');
 var ShowList=require('./ShowList');
-
-
 var Login = require('./login');
 
 var DRAWER_REF = 'drawer';
@@ -83,17 +84,19 @@ var home =  React.createClass({
     render() {
         var cateId = this.state.cateId;
         return (
-            <DrawerLayoutAndroid
+           /* <DrawerLayoutAndroid
                 ref={DRAWER_REF}
                 drawerWidth={Dimensions.get('window').width}
                 keyboardDismissMode="on-drag"
                 drawerPosition={DrawerLayoutAndroid.positions.Left}
                 renderNavigationView={this._renderNavigationView}>
-            <View style={{flex : 1}}>
+            */
+            <View style={{}}>
 
                 {this._renderHeader()}
 
-                <ScrollView stickyHeaderIndices={[1]}style={{flex:1}} >
+
+                      <ScrollView stickyHeaderIndices={[1]}style={{flex:1,height:ScrollView_HEIGHT}} >
 
                     <TopScreen style={{flex:1}} />
 
@@ -101,12 +104,13 @@ var home =  React.createClass({
 
                     <ShowList navigator={this.props.navigator} />
 
+                    <Cat />
 
 
                 </ScrollView>
 
             </View>
-                </DrawerLayoutAndroid>
+                //</DrawerLayoutAndroid>
         );
     }
 });

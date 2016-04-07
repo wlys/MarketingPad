@@ -6,9 +6,11 @@ var {
     Dimensions,
     } = React;
 
+var globalStyles = require('../../../styles/globalStyles');
+
 //const NAV_BAR_HEIGHT = (Dimensions.get('window').height/10);
 const STATUS_BAR_HEIGHT = 20;
-const NAV_BAR_HEIGHT = 55;
+const NAV_BAR_HEIGHT = globalStyles.NAVBAR_HEIGHT;
 
 module.exports = {
   navBarContainer: {
