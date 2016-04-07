@@ -13,85 +13,78 @@ var {
 
     } = React;
 
-//cat 数据
-var MockData = [{
-    catName : 'MorningMeeting',
-    img : 'http://gtms02.alicdn.com/tps/i2/TB1hbkyHpXXXXboXXXXcy0wIpXX-70-70.png',
-    text : '晨会一页纸'
-
-},{
-    catName : 'Marketing',
-    img : 'http://gtms01.alicdn.com/tps/i1/TB1wpUtHpXXXXb1XVXXcy0wIpXX-70-70.png',
-    text : '场内营销'
-
-},{
-    catName : 'Rate',
-    img : 'http://gtms03.alicdn.com/tps/i3/TB14NwyHpXXXXaUXXXXcy0wIpXX-70-70.png',
-    text : '利率汇率'
-},{
-    catName : 'Calculator',
-    img : 'http://gtms04.alicdn.com/tps/i4/TB1ODktHpXXXXXZXVXXcy0wIpXX-70-70.png',
-    text : '计算器'
-
-}];
+module.exports = React.createClass({
+    render() {
+        return (
+            <View style={{flexDirection:'row', height:160,borderColor: '#CCCCCC',backgroundColor:'white',borderWidth: 1, marginTop:5, marginBottom:5}}>
+                <View style={styles.leftCell}>
+                    <TouchableOpacity  style={styles.touchCell} onPress={()=>{}}>
+                        <Text style={{fontFamily:'Entypo',fontSize:100,color:'#FF44AA', }}>
+                            {String.fromCharCode(parseInt('f276',16))}
+                        </Text>
+                        <Text>我的业绩</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={{flex: 2,flexDirection:'column'}}>
+                    <View style={{flexDirection:'row',flex: 1, borderBottomColor: '#CCCCCC', borderBottomWidth: 1}}>
+                        <View style={styles.leftCell}>
+                            <TouchableOpacity  style={styles.touchCell} onPress={()=>{}}>
+                                <Text style={{fontFamily:'Entypo',fontSize:40,color:"#99FF33"}}>
+                                    {String.fromCharCode(parseInt('f24a',16))}
+                                </Text>
+                                <Text>客户</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <View style={styles.rightCell1}>
+                            <TouchableOpacity  style={styles.touchCell} onPress={()=>{this.props.navigator.push({name:'MorningMeeting'})}}>
+                                <Text style={{fontFamily:'FontAwesome',fontSize:40,color:"#FFDD55"}}>
+                                    {String.fromCharCode(parseInt('f0f6',16))}
+                                </Text>
+                                <Text>一页纸</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                    <View style={{flexDirection:'row',flex: 1}}>
+                        <View style={styles.leftCell}>
+                            <TouchableOpacity  style={styles.touchCell} onPress={()=>{}}>
+                                <Text style={{fontFamily:'FontAwesome',fontSize:40,color:"#99FF33"}}>
+                                    {String.fromCharCode(parseInt('f1e7',16))}
+                                </Text>
+                                <Text>走进我们</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <View style={styles.rightCell1}>
+                            <TouchableOpacity  style={styles.touchCell} onPress={()=>{}}>
+                                <Text style={{fontFamily:'FontAwesome',fontSize:40,color:"#00DDDD"}}>
+                                    {String.fromCharCode(parseInt('f1ec',16))}
+                                </Text>
+                                <Text>计算器</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                </View>
+            </View>
+        )
+    }
+});
 
 // 组件样式
 var styles = StyleSheet.create({
-    box: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        paddingTop: 10,
-        paddingBottom : 10,
-        paddingLeft : 5,
-        paddingRight: 5,
-        backgroundColor : '#eeeeee'
+    touchCell: {
+        flexDirection:'column',
+        alignItems:'center',
+        justifyContent:'center'
     },
-    boxImg : {
-        width : 35,
-        height: 35,
-        marginBottom : 10
-    },
-    boxItem: {
+    leftCell:{
         flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        padding: 2
+        borderRightColor: '#CCCCCC',
+        borderRightWidth: 1,
+        alignItems:'center',
+        justifyContent:'center'
     },
-    boxText: {
-        color : '#333333',
-        fontSize : 12
+    rightCell1:{
+        flex: 1,
+        alignItems:'center',
+        justifyContent:'center'
     }
-
-});
-
-module.exports = React.createClass({
-
-    _appendEven(catName) {
-        var router={name:catName};
-        this.props.navigator.push(router);
-
-    },
-    renderItems(data) {
-        return data.map(function(items,key){
-            return (
-                <TouchableOpacity key={key} style={{flex:1}} onPress={()=>this._appendEven(items.catName)}>
-                    <View style={styles.boxItem}>
-                        <Image source={{uri : items.img}} style={styles.boxImg} />
-                        <Text  style={styles.boxText}>{items.text}</Text>
-                    </View>
-                </TouchableOpacity>
-            )
-        }.bind(this))
-    },
-
-    render() {
-        return (
-            <View style={styles.box} >
-                {this.renderItems(MockData)}
-            </View>
-        )
-
-    }
-
 });
