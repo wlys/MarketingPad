@@ -6,11 +6,12 @@ var {
     } = React;
 
 const glypy = glypyMapMaker({
-    Home: 'e900',
-    LobbyMgr: 'f0c0',
+    Home: 'e904',
+    LobbyMgr: 'e900',
     Fiancial: 'e902',
-    Settings: 'e903',
-    FiancialMarket:'f012'
+    FiancialMarket:'f012',
+    Settings: 'e901'
+
 });
 var Home = require('./../components/HomeComponent');
 var LobbyMgr=require('./../components/LobbyMgrComponent');
@@ -23,6 +24,7 @@ tabBarProps['onActiveColor']='#009900';
 tabBarProps['onInactiveColor']='gray';
 tabBarProps['onActiveColorBar']='#009900';
 tabBarProps['onInactiveColorBar']='#fff';
+
 var MainScreen = React.createClass({
     _tabbarToggle(value) {
         this.refs['myTabbar'].getBarRef().show(value);
@@ -30,35 +32,35 @@ var MainScreen = React.createClass({
 
     render: function () {
         return (
-            <Tabbar ref="myTabbar" barColor={'#eeeeee'} initialTab={this.props.initialTab}>
+            <Tabbar ref="myTabbar" barColor={'#eeeeee'} barSize={60} initialTab={this.props.initialTab}>
                 <Tab name="Home">
-                    <IconWithBar label=" 首页" {...tabBarProps} type={glypy.Home} from={'icomoon'}/>
+                    <IconWithBar label=" 首页" {...tabBarProps} type={glypy.Home} from={'icomoon_slg'} size={26}/>
                     <RawContent>
                         <Home mainScreen={this}/>
                     </RawContent>
                 </Tab>
 
                 <Tab name="LobbyMgr">
-                    <IconWithBar label="大堂管理"  {...tabBarProps} type={glypy.LobbyMgr} from={'FontAwesome'}/>
+                    <IconWithBar label="大堂管理"  {...tabBarProps} type={glypy.LobbyMgr} from={'icomoon_slg'} size={26}/>
                     <RawContent>
                         <LobbyMgr  tabBarShow={(enable)=>this._tabbarToggle(enable)}/>
                     </RawContent>
                 </Tab>
 
                 <Tab name="Fiancial">
-                    <IconWithBar label="理财产品"  {...tabBarProps} type={glypy.Fiancial} from={'icomoon'}/>
+                    <IconWithBar label="理财产品"  {...tabBarProps} type={glypy.Fiancial} from={'icomoon'} size={26}/>
                     <RawContent>
                         <Fiancial mainScreen={this}/>
                     </RawContent>
                 </Tab>
                 <Tab name="FiancialMarket">
-                    <IconWithBar label="金融行情"  {...tabBarProps} type={glypy.FiancialMarket} from={'FontAwesome'}/>
+                    <IconWithBar label="金融行情"  {...tabBarProps} type={glypy.FiancialMarket} from={'FontAwesome'} size={26}/>
                     <RawContent>
                         <FiancialMarket/>
                     </RawContent>
                 </Tab>
                 <Tab name="settings">
-                    <IconWithBar label="我的"  {...tabBarProps} type={glypy.Settings} from={'icomoon'}/>
+                    <IconWithBar label="我的"  {...tabBarProps} type={glypy.Settings} from={'icomoon_slg2'} size={24}/>
                     <RawContent>
                         <MySet />
                     </RawContent>

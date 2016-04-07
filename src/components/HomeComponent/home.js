@@ -93,7 +93,7 @@ var home =  React.createClass({
 
                 {this._renderHeader()}
 
-                <ScrollView stickyHeaderIndices={[4]}style={{flex:1}} >
+                <ScrollView stickyHeaderIndices={[1]}style={{flex:1}} >
 
                     <TopScreen style={{flex:1}} />
 

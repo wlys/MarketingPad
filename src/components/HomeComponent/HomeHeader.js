@@ -36,20 +36,20 @@ var HomeHeader = React.createClass({
 
     render: function() {
         const leftButtonConfig = {
-            title: String.fromCharCode(parseInt('f0c9',16)),
+            title: String.fromCharCode(parseInt('f120',16)),
             styleText:{
-                fontFamily:'FontAwesome',
-                fontSize:33,
+                fontFamily:'EvilIcons',
+                fontSize:36,
             },
             tintColor :'white',
             handler: () => this._tabSelectedEvent(),
         };
         const rightButtonConfig = {
-            title: String.fromCharCode(parseInt('f003',16)),
+            title: String.fromCharCode(parseInt('f114',16)),
 
             styleText:{
-                fontFamily:'FontAwesome',
-                fontSize:33,
+                fontFamily:'EvilIcons',
+                fontSize:36,
             },
             tintColor :'white',
             //handler: () => this._tabSelectedEvent(),
@@ -60,7 +60,7 @@ var HomeHeader = React.createClass({
                 title={{ title: this.props.title, }}
                 leftButton={leftButtonConfig}
                 rightButton={rightButtonConfig}
-                tintColor='#00DDAA' />
+                tintColor='#009900' />
         );
     }
 });

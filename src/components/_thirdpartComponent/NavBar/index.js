@@ -54,7 +54,7 @@ class NavigationBar extends Component {
     customizeStatusBar(this.props.statusBar);
   }
 
-  getButtonElement(data = {}, style) {
+  getButtonElement(data = {}, style={}) {
     return (
       <View style={styles.navBarButtonContainer}>
         {(!!data.props) ? data : (

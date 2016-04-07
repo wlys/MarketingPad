@@ -6,8 +6,9 @@ var {
     Dimensions,
     } = React;
 
-const NAV_BAR_HEIGHT = (Dimensions.get('window').height/13);
+//const NAV_BAR_HEIGHT = (Dimensions.get('window').height/10);
 const STATUS_BAR_HEIGHT = 20;
+const NAV_BAR_HEIGHT = 55;
 
 module.exports = {
   navBarContainer: {
@@ -53,9 +54,9 @@ module.exports = {
     alignItems: 'center',
   },
   navBarTitleText: {
-    fontSize: 17,
-    letterSpacing: 0.5,
-    color: '#333',
-    fontWeight: '500',
+    fontSize: 20,
+    letterSpacing: 1.4,
+    color: 'white',
+    fontWeight: '200',
   },
 };
