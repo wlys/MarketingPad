@@ -36,14 +36,24 @@ var Util = {
     }).done();
   },
 
-  //get请求
+  //get请求,回调函数处理网页文本数据
   get: function (url, callback) {
     fetch(url)
     .then((response) => response.text())
     .then((responseText) => {
-      callback(JSON.parse(responseText));
+      callback(responseText);
       // callback(responseText);
     }).done();
+  },
+
+  //get请求,回调函数处理json数据
+  getJSON: function (url, callback) {
+    fetch(url)
+        .then((response) => response.json())
+        .then((responseData) => {
+          callback(responseData);
+          // callback(responseText);
+        }).done();
   },
 
   log:function (obj){
