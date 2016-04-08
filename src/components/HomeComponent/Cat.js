@@ -18,8 +18,8 @@ module.exports = React.createClass({
         return (
             <View style={{flexDirection:'row', height:160,borderColor: '#CCCCCC',backgroundColor:'white',borderWidth: 1, marginTop:5, marginBottom:5}}>
                 <View style={styles.leftCell}>
-                    <TouchableOpacity  style={styles.touchCell} onPress={()=>{}}>
-                        <Text style={{fontFamily:'Entypo',fontSize:100,color:'#FF44AA', }}>
+                    <TouchableOpacity  style={styles.touchCell} onPress={()=>{this.props.navigator.push({name:'Login'})}}>
+                        <Text style={{fontFamily:'Entypo',fontSize:100,color:'#FFDD55', }}>
                             {String.fromCharCode(parseInt('f276',16))}
                         </Text>
                         <Text>我的业绩</Text>
@@ -28,11 +28,11 @@ module.exports = React.createClass({
                 <View style={{flex: 2,flexDirection:'column'}}>
                     <View style={{flexDirection:'row',flex: 1, borderBottomColor: '#CCCCCC', borderBottomWidth: 1}}>
                         <View style={styles.leftCell}>
-                            <TouchableOpacity  style={styles.touchCell} onPress={()=>{}}>
+                            <TouchableOpacity  style={styles.touchCell} onPress={()=>{this.props.navigator.push({name:'Login'})}}>
                                 <Text style={{fontFamily:'Entypo',fontSize:40,color:"#99FF33"}}>
                                     {String.fromCharCode(parseInt('f24a',16))}
                                 </Text>
-                                <Text>客户</Text>
+                                <Text>我的客户</Text>
                             </TouchableOpacity>
                         </View>
                         <View style={styles.rightCell1}>
@@ -40,7 +40,7 @@ module.exports = React.createClass({
                                 <Text style={{fontFamily:'FontAwesome',fontSize:40,color:"#FFDD55"}}>
                                     {String.fromCharCode(parseInt('f0f6',16))}
                                 </Text>
-                                <Text>一页纸</Text>
+                                <Text>晨会一页纸</Text>
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -54,11 +54,11 @@ module.exports = React.createClass({
                             </TouchableOpacity>
                         </View>
                         <View style={styles.rightCell1}>
-                            <TouchableOpacity  style={styles.touchCell} onPress={()=>{}}>
-                                <Text style={{fontFamily:'FontAwesome',fontSize:40,color:"#00DDDD"}}>
-                                    {String.fromCharCode(parseInt('f1ec',16))}
+                            <TouchableOpacity  style={styles.touchCell} onPress={()=>{this.props.navigator.push({name:'Login'})}}>
+                                <Text style={{fontFamily:'Entypo',fontSize:40,color:"#FFDD55"}}>
+                                    {String.fromCharCode(parseInt('f206',16))}
                                 </Text>
-                                <Text>计算器</Text>
+                                <Text>行为简报</Text>
                             </TouchableOpacity>
                         </View>
                     </View>

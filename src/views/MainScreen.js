@@ -28,7 +28,8 @@ tabBarProps['onInactiveColorBar']='#fff';
 
 var MainScreen = React.createClass({
     _tabbarToggle(value) {
-        this.refs['myTabbar'].getBarRef().show(value);
+        if(this.refs['myTabbar'])
+            this.refs['myTabbar'].getBarRef().show(value);
     },
 
     render: function () {
