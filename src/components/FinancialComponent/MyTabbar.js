@@ -47,7 +47,7 @@ var MyTabbar = React.createClass({
     },
 
     render() {
-        console.log("render" );
+        console.log("render mytabbar" );
         return(
             <View>
                 <MyTabbarHeader tabArray={this.props.tabArray} routerArray={this._routerArray} markArray={this._markArray} />
@@ -116,6 +116,7 @@ var MyTabbarHeader = React.createClass({
         if(1>this._markArray[i]){
             console.log("this._navigator.push({name:i}); " + i);
             if(this._topRouter){
+                console.log("this._navigator.jumpTo _topRouter" + this._topRouter.name);
                 globalNavigator.jumpTo(this._topRouter);
             }
             console.log("this._topRouter; " + this._topRouter);

@@ -16,20 +16,8 @@ var {
     } = React;
 
 var GiftedListView = require('../_thirdpartComponent/react-native-gifted-listview');
-
-
-var fundData=[{code:'162712',name:'广发聚利债券',rate:16.2},
-    {code:'519985',name:'长信纯债壹号债券',rate:11.62},
-    {code:'400030',name:'东方添溢债券',rate:10.56},
-    {code:'162712',name:'广发聚利债券',rate:16.2},
-    {code:'519985',name:'长信纯债壹号债券',rate:11.62},
-    {code:'400030',name:'东方添溢债券',rate:10.56},
-    {code:'162712',name:'广发聚利债券',rate:16.2},
-    {code:'519985',name:'长信纯债壹号债券',rate:11.62},
-    {code:'400030',name:'东方添溢债券',rate:10.56},
-    {code:'162712',name:'广发聚利债券',rate:16.2},
-    {code:'519985',name:'长信纯债壹号债券',rate:11.62},
-    {code:'400030',name:'东方添溢债券',rate:10.56}];
+var Util = require('../../util/util.js');
+var ServerConfig = require('../../util/serverconfig.js');
 
 var Fund = React.createClass({
 
@@ -42,12 +30,12 @@ var Fund = React.createClass({
 
     _renderRow: function(rowData: string, sectionID: number, rowID: number) {
         return (
-            <TouchableOpacity onPress={()=>this._tabSelectedEvent(fundData[rowData].code)}>
+            <TouchableOpacity onPress={()=>this._tabSelectedEvent(this._fundData[rowData].code)}>
                 <View>
                     <View style={styles.row}>
                         <View style={[styles.part_1_left]}>
                             <Text style={styles.textLeftUp}>
-                                {fundData[rowData].rate}%
+                                {this._fundData[rowData].rate}%
                             </Text>
                             <Text style={styles.textLeftDown}>
                                 近一年涨跌幅
@@ -56,7 +44,7 @@ var Fund = React.createClass({
 
                         <View style={[styles.part_1_right]}>
                             <Text style={styles.textRight}>
-                                {fundData[rowData].name}
+                                {this._fundData[rowData].name}
                             </Text>
                         </View>
                     </View>
@@ -67,17 +55,20 @@ var Fund = React.createClass({
     },
     _onFetch(page = 1, callback, options) {
         setTimeout(() => {
-            var rows = [];
-            for (var ii = 0; ii < 6; ii++) {
-                rows.push(ii);
-            }
-            if (page === 3) {
-                callback(rows, {
-                    allLoaded: true, // the end of the list is reached
-                });
-            } else {
-                callback(rows);
-            }
+            Util.getJSON(ServerConfig.FUNDDATA,(responseData)=>{
+                this._fundData = responseData.data;
+                var rows = [];
+                for(var ii = 0; ii < this._fundData.length; ii++){
+                    rows.push(ii);
+                }
+                if (page === 3) {
+                    callback(rows, {
+                        allLoaded: true, // the end of the list is reached
+                    });
+                } else {
+                    callback(rows);
+                }
+            });
         }, 1000); // simulating network fetching
     },
     render: function() {

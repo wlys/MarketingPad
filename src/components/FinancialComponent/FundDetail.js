@@ -25,7 +25,7 @@ var FundDetail = React.createClass({
                 <DetailHeader navigator={this.props.navigator} title="基金详情" mainScreen={this.props.mainScreen}></DetailHeader>
                 <View style={styles.row}>
                     <View>
-                        <Text style={{fontSize: 25,fontWeight:'bold'}}>
+                        <Text style={{fontSize: 20,fontWeight:'bold'}}>
                             {fundData[this.props.router.msg].name + ' ' + this.props.router.msg}
                         </Text>
                     </View>

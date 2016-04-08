@@ -13,7 +13,7 @@ var {
 
 var FinancialHome=require('./FinancialHome');
 var FundDetail=require('./FundDetail');
-
+var FinancialDetail=require('./FinancialDetail');
 var index =React.createClass({
     _configureScene () {
         return Navigator.SceneConfigs.FadeAndroid;
@@ -28,6 +28,9 @@ var index =React.createClass({
                 break;
             case "FundDetail":
                 Component = FundDetail;
+                break;
+            case "FinancialDetail":
+                Component = FinancialDetail;
                 break;
             default: //default view
                 Component = FinancialHome;
