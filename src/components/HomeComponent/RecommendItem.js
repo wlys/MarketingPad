@@ -30,7 +30,7 @@ var RecommendItem = React.createClass({
 
                         <View style={{flex :1,backgroundColor: '#eeeeee',opacity:0.9}}>
                         <View style={styles.title}>
-                            <Text style={{flex:1,fontSize:16,color:'#ff9900'}}>
+                            <Text style={{flex:1,fontSize:16,color:'#ff9900',marginLeft:5}}>
                                 {this.props.name}
                             </Text>
                         </View>
@@ -59,11 +59,11 @@ var styles = StyleSheet.create({
         justifyContent: 'center',
         width: width,
         height: height,
-        padding: 2,
+      //  padding: 2,
        //borderWidth: 1,
-        backgroundColor: '#fff',
-        borderColor: '#000',
-        marginLeft:5
+        backgroundColor: 'blue',
+       // borderColor: '#000',
+        marginLeft:6
     },
     image:{
         flex:1,
@@ -71,13 +71,13 @@ var styles = StyleSheet.create({
     title: {
        // borderWidth: 1,
         height: height * 0.3,
-        borderColor: '#000',
+        //borderColor: '#000',
 
     },
     container: {
         flexDirection: 'row',
        // borderWidth: 1,
-        borderColor: 'rgba(0,0,0,0.1)',
+        //borderColor: 'rgba(0,0,0,0.1)',
         height: height * 0.7,
 
     },
@@ -85,12 +85,12 @@ var styles = StyleSheet.create({
 
      //   borderWidth: 1,
         width: width * 0.4,
-        borderColor: '#000',
+        //borderColor: '#000',
     },
     containerright: {
       //  borderWidth: 1,
-        borderColor: '#000',
-        width: width * 0.6,
+        //borderColor: '#000',
+        width: width * 0.4,
     },
     list: {
         marginTop: 5,

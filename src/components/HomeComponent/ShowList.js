@@ -13,6 +13,7 @@ var {
     ScrollView,
     Dimensions
     } = React;
+var globalStyles = require('../../styles/globalStyles');
 
 var ShowListContainer=require('./ShowListContainer');
 var RecommendItem = require('./RecommendItem');
@@ -43,22 +44,29 @@ var ShowList = React.createClass({
         }.bind(this));
     },
 
-
     render: function() {
         return (
             <View>
-                <Text style={{flex:1,fontSize:18,color:'#3366cc'}}>今日推荐</Text>
-                <ScrollView horizontal={true}>
+            <View style={{backgroundColor:'#eeeeee',marginTop:globalStyles.MARGIN_HEIGHT}}>
+                <View style={styles.flexContainer}>
+
+                    <Text style={{flex:1,fontSize:18,color:'#3366cc',margin:globalStyles.MARGIN_HEIGHT,textAlign:'left'}}>今日推荐</Text>
+                    <Text style={{flex:1,fontSize:18,color:'#3366cc',margin:globalStyles.MARGIN_HEIGHT,textAlign:'right'}}>今日推荐</Text>
+                </View>
+                <ScrollView horizontal={true} style={{borderColor:'#eeeeee'}}>
                     {this._renderItems(fundData)}
                 </ScrollView>
+            </View>
 
-                <Text style={{flex:1,fontSize:18,color:'#cc0000'}}>收益TOP5</Text>
+            <View style={{backgroundColor:'#eeeeee',marginTop:globalStyles.MARGIN_HEIGHT}}>
+                <Text style={{flex:1,fontSize:18,color:'#cc0000',margin:globalStyles.MARGIN_HEIGHT}}>收益TOP5</Text>
                 <ScrollView horizontal={true}>
                     <ShowListContainer/>
                     <ShowListContainer/>
                     <ShowListContainer/>
                     <ShowListContainer/>
                 </ScrollView>
+            </View>
             </View>
         );
 
@@ -72,15 +80,9 @@ var ShowList = React.createClass({
 
 
 var styles = StyleSheet.create({
-    row: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        width:150,
-        height:60,
-        padding: 10,
-        borderWidth: 1,
-        backgroundColor: '#fff',
-        borderColor: 'rgba(0,0,0,0.1)',
+    flexContainer: {
+        // 容器需要添加direction才能变成让子元素flex
+        flexDirection: 'row'
     },
     list: {
         marginTop:5,

@@ -17,7 +17,7 @@ var{
     }=React;
 
 var globalStyles = require('../../styles/globalStyles');
-var ScrollView_HEIGHT = globalStyles.WINDOW_HEIGHT - globalStyles.NAVBAR_HEIGHT - globalStyles.TABBAR_HEIGHT;
+var ScrollView_HEIGHT = globalStyles.WINDOW_HEIGHT- globalStyles.NAVBAR_HEIGHT - globalStyles.TABBAR_HEIGHT - 6*globalStyles.MARGIN_HEIGHT;
 
 var HomeHeader = require('./HomeHeader');
 var TopScreen=require('./TopScreen');
@@ -96,15 +96,13 @@ var home =  React.createClass({
                 {this._renderHeader()}
 
 
-                      <ScrollView stickyHeaderIndices={[1]}style={{flex:1,height:ScrollView_HEIGHT}} >
+                <ScrollView style={{height:ScrollView_HEIGHT}} >
 
                     <TopScreen style={{flex:1}} />
 
                     <Cat navigator={this.props.navigator} />
 
                     <ShowList navigator={this.props.navigator} />
-
-                    <Cat />
 
 
                 </ScrollView>
