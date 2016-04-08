@@ -24,6 +24,7 @@ module.exports = {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'stretch',
+    backgroundColor:'#009900'
   },
   customTitle: {
     position: 'absolute',
@@ -45,6 +46,7 @@ module.exports = {
   navBarButtonText: {
     fontSize: 17,
     letterSpacing: 0.5,
+    color:'white'
   },
   navBarTitleContainer: {
     position: 'absolute',
