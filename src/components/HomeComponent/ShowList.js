@@ -32,7 +32,6 @@ var RecommendItem = require('./RecommendItem');
 var fundData=[{code:'162712',name:'广发聚利债券',rate:'16.2'},
     {code:'519985',name:'长信纯债壹号债券',rate:'11.62'},
     {code:'400030',name:'东方添溢债券',rate:'10.56'}];
-var code1 = '162712';
 
 var ShowList = React.createClass({
 
@@ -49,9 +48,18 @@ var ShowList = React.createClass({
             <View>
             <View style={{backgroundColor:'#eeeeee',marginTop:globalStyles.MARGIN_HEIGHT}}>
                 <View style={styles.flexContainer}>
+                    <View style={{width:30,justifyContent:'center'}}>
+                        <Text style={{fontSize:18,color:'red',textAlign:'center',fontFamily:'EvilIcons'}}>
+                            {String.fromCharCode(parseInt('f120',16))}
+                        </Text>
+                    </View>
+                    <View style={{flex:1}}>
+                        <Text style={{fontSize:18,color:'red',margin:globalStyles.MARGIN_HEIGHT,textAlign:'left'}}>今日推荐</Text>
 
-                    <Text style={{flex:1,fontSize:18,color:'#3366cc',margin:globalStyles.MARGIN_HEIGHT,textAlign:'left'}}>今日推荐</Text>
-                    <Text style={{flex:1,fontSize:18,color:'#3366cc',margin:globalStyles.MARGIN_HEIGHT,textAlign:'right'}}>今日推荐</Text>
+                    </View>
+                    <View style={{flex:1}}>
+                        <Text style={{fontSize:13,color:'grey',margin:globalStyles.MARGIN_HEIGHT,textAlign:'right'}}>更多</Text>
+                    </View>
                 </View>
                 <ScrollView horizontal={true} style={{borderColor:'#eeeeee'}}>
                     {this._renderItems(fundData)}
@@ -71,10 +79,6 @@ var ShowList = React.createClass({
         );
 
         }
-
-
-
-
 });
 
 
@@ -82,7 +86,9 @@ var ShowList = React.createClass({
 var styles = StyleSheet.create({
     flexContainer: {
         // 容器需要添加direction才能变成让子元素flex
-        flexDirection: 'row'
+        flexDirection: 'row',
+        height:40
+
     },
     list: {
         marginTop:5,

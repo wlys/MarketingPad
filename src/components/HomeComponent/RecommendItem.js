@@ -13,7 +13,7 @@ var {
     Dimensions
     } = React;
 var { width, height, scale } = Dimensions.get('window');
-width = width/2 -2;
+width = width/2 -10;
 height = 110;
 
 var RecommendItem = React.createClass({
@@ -34,17 +34,12 @@ var RecommendItem = React.createClass({
                                 {this.props.name}
                             </Text>
                         </View>
-                        <View style={styles.container}>
-                            <View style={styles.containerleft}>
-                                <Text style={{flex:1,fontSize:22,color:'red'}}> {this.props.rate}</Text>
-                                <Text style={{flex:1,fontSize:12,color:'#000',textAlign: 'center'}}>近一年涨跌幅</Text>
-                            </View>
+                        <View style={{alignItems:'center',}}>
 
-                            <View style={styles.containerright}>
-                                <Text style={{flex:1,fontSize:14,color:'#000'}}>起点金额：</Text>
-                                <Text style={{flex:1,fontSize:14,color:'#000'}}>产品期限：</Text>
-                                <Text style={{flex:1,fontSize:14,color:'#000'}}>收益类型：</Text>
-                            </View>
+                                <Text style={{fontSize:28,color:'red'}}> {this.props.rate}%</Text>
+                                <Text style={{fontSize:12,color:'grey',textAlign: 'center'}}>近一年涨跌幅</Text>
+
+
                         </View>
                             </View>
 
