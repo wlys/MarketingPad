@@ -1,6 +1,5 @@
 'use strict';
 var React = require('react-native');
-
 var {
     StyleSheet,
     TouchableOpacity,
@@ -12,8 +11,12 @@ var {
     Component,
     Dimensions
     } = React;
+
+var globalStyles = require('../../styles/globalStyles');
+var BACKGROUND_COLOR_HOME=globalStyles.BACKGROUND_COLOR_HOME;
+
 var { width, height, scale } = Dimensions.get('window');
-width = width/2 -10;
+width = width/2 -12;
 height = 110;
 
 var RecommendItem = React.createClass({
@@ -28,7 +31,7 @@ var RecommendItem = React.createClass({
             <TouchableOpacity onPress={()=>this._tabSelectedEvent(this.props.code)}>
                 <View style={styles.row}>
 
-                        <View style={{flex :1,backgroundColor: '#eeeeee',opacity:0.9}}>
+                        <View style={{flex :1,backgroundColor: globalStyles.BACKGROUND_COLOR_HOME,opacity:0.9}}>
                         <View style={styles.title}>
                             <Text style={{flex:1,fontSize:16,color:'#ff9900',marginLeft:5}}>
                                 {this.props.name}

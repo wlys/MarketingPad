@@ -21,7 +21,7 @@ var LoginHeader = React.createClass({
 
     },
 
-    //
+
     //componentDidMount() {
     //    var navigator = this.props.navigator;
     //    var mainScreen = this.props.mainScreen;

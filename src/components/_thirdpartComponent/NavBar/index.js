@@ -10,6 +10,7 @@ const {
 } = React;
 import NavbarButton from './NavbarButton';
 import styles from './styles';
+import globalStyles from '../../../styles/globalStyles.js';
 
 const ButtonShape = {
   title: PropTypes.string.isRequired,
@@ -90,7 +91,7 @@ class NavigationBar extends Component {
 
   render() {
     const customTintColor = this.props.tintColor ?
-      { backgroundColor: this.props.tintColor } : null;
+      { backgroundColor: this.props.tintColor } :{backgroundColor:globalStyles.BACKGROUND_COLOR_NAVBAR};
 
     const customStatusBarTintColor = this.props.statusBar.tintColor ?
       { backgroundColor: this.props.statusBar.tintColor } : null;

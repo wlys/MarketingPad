@@ -60,7 +60,7 @@ var HomeHeader = React.createClass({
                 title={{ title: this.props.title, }}
                 leftButton={leftButtonConfig}
                 rightButton={rightButtonConfig}
-                tintColor='#009900' />
+                />
         );
     }
 });

@@ -8,8 +8,9 @@ var {
     } = React;
 
 var Home = require('./home');
+var FundList = require('./FundList');
 var MorningMeeting = require('./MorningMeeting');
-var FundDetail = require('./../FinancialComponent/FundDetail');
+var FundDetail = require('./FundDetail');
 var Login = require('./login');
 
 var index =React.createClass({
@@ -27,6 +28,9 @@ var index =React.createClass({
                 break;
             case "MorningMeeting":
                 Component = MorningMeeting;
+                break;
+            case "FundList":
+                Component = FundList;
                 break;
             case "FundDetail":
                 Component = FundDetail;

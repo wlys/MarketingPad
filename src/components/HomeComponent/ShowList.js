@@ -43,24 +43,37 @@ var ShowList = React.createClass({
         }.bind(this));
     },
 
+
+    _tabSelectedEvent(){
+        var router ={name:"FundList",direction:"forward"};
+        this.props.navigator.push(router) ;
+    },
+
+
+
+
+
+
     render: function() {
         return (
             <View>
+
             <View style={{backgroundColor:'#eeeeee',marginTop:globalStyles.MARGIN_HEIGHT}}>
+                <TouchableOpacity onPress={()=>this._tabSelectedEvent()}>
                 <View style={styles.flexContainer}>
                     <View style={{width:30,justifyContent:'center'}}>
-                        <Text style={{fontSize:18,color:'red',textAlign:'center',fontFamily:'EvilIcons'}}>
+                        <Text style={{fontSize:18,color:'grey',textAlign:'center',fontFamily:'EvilIcons'}}>
                             {String.fromCharCode(parseInt('f120',16))}
                         </Text>
                     </View>
                     <View style={{flex:1}}>
                         <Text style={{fontSize:18,color:'red',margin:globalStyles.MARGIN_HEIGHT,textAlign:'left'}}>今日推荐</Text>
-
                     </View>
                     <View style={{flex:1}}>
                         <Text style={{fontSize:13,color:'grey',margin:globalStyles.MARGIN_HEIGHT,textAlign:'right'}}>更多</Text>
                     </View>
                 </View>
+                </TouchableOpacity>
                 <ScrollView horizontal={true} style={{borderColor:'#eeeeee'}}>
                     {this._renderItems(fundData)}
                 </ScrollView>
@@ -75,6 +88,7 @@ var ShowList = React.createClass({
                     <ShowListContainer/>
                 </ScrollView>
             </View>
+
             </View>
         );
 

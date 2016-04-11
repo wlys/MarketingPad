@@ -86,13 +86,13 @@ var styles = StyleSheet.create({
     },
     text: {
         flex: 1,
-        fontSize: 18,
+        fontSize: 28,
         textAlign: 'center',
         color: 'green',
         position: 'absolute',
         left: 0,
         right: 0,
-        bottom: 100,
+        bottom: 200,
         backgroundColor: 'transparent',
     }
 });
