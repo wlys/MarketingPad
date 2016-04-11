@@ -35,7 +35,7 @@ class index extends Component{
 
         if(Component===CustomMsg){
             return(
-                <Component navigator={navigator}  msg={router.msg}/>
+                <Component navigator={navigator} tabBarShow={this.props.tabBarShow} msg={router.msg}/>
             )
         }
        else  return <Component navigator={navigator} tabBarShow={this.props.tabBarShow}/>

@@ -7,7 +7,7 @@
 'use strict';
 var React = require('react-native');
 var ThemesList=require('./ThemesList');
-
+var NavigationBar = require( '../_thirdpartComponent/NavBar');
 var {
     AppRegistry,
     Image,
@@ -160,7 +160,7 @@ class Manager extends Component {
             />
     );
 }
-    _renderHeader() {
+/*    _renderHeader() {
         var title = this.state.theme ? this.state.theme.name : '大堂管理';
         return (
 
@@ -172,6 +172,16 @@ class Manager extends Component {
                 actions={toolbarActions}
                 onIconClicked={() => this.refs[DRAWER_REF].openDrawer()}
                 onActionSelected={this.onActionSelected} />
+
+        );
+    }*/
+    _renderHeader() {
+
+        return (
+
+            <NavigationBar
+                title={{ title: '大堂管理' }}
+                />
 
         );
     }

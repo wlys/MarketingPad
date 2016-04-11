@@ -5,6 +5,7 @@
 'use strict';
 var React = require('react-native');
 var MyChart=require('./MyChart');
+var NavigationBar = require( '../_thirdpartComponent/NavBar');
 var {
     BarChart,
     CombinedChart,
@@ -54,6 +55,7 @@ var dataSource4={
 class CustomMsg extends Component {
     componentDidMount(){
         BackAndroid.addEventListener('hardwareBackPress',function(){
+            this.props.tabBarShow(true);
               this.props.navigator.pop();
             return true;
         }.bind(this));
@@ -237,12 +239,36 @@ class CustomMsg extends Component {
         }.bind(this))
 
     }
+_tabSelectedEvent(){
+    this.props.navigator.pop();
+    this.props.tabBarShow(true);
+}
+    _renderHeader() {
+        const leftButtonConfig = {
+            title: String.fromCharCode(parseInt('f142',16)),
+            handler: () => this._tabSelectedEvent(),
 
+            styleText:{
+                fontFamily:'Entypo',
+                fontSize:40,
+            },
+        };
+        return (
+
+
+            <NavigationBar
+                title={{ title: "客户信息" }}
+                leftButton={leftButtonConfig}
+                />
+
+        );
+    }
     render() {
-
+        this.props.tabBarShow(false);
         return (
             <View style={styles.page}>
-            <ScrollView style={{backgroundColor : '#fff',flex:1}}>
+                {this._renderHeader()}
+                <ScrollView style={{backgroundColor : '#fff',flex:1}}>
                 <Text>{this.props.msg}</Text>
 
 
@@ -284,7 +310,7 @@ var styles = StyleSheet.create({
     },
     page: {
         flex: 1,
-        padding: 10
+        //padding: 10
 
     },
     baseMsg: {
