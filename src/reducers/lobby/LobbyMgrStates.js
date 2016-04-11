@@ -1,0 +1,1 @@
+export const CHG_ACTIVE_TAB = 'CHG_ACTIVE_TAB';
