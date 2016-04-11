@@ -43,7 +43,7 @@ var Util = {
     .then((responseText) => {
       callback(responseText);
       // callback(responseText);
-    }).done();
+    }).catch((error) => { console.warn(error); });;
   },
 
   //get请求,回调函数处理json数据
@@ -53,7 +53,7 @@ var Util = {
         .then((responseData) => {
           callback(responseData);
           // callback(responseText);
-        }).done();
+        }).catch((error) => { console.warn(error); });;
   },
 
   log:function (obj){
