@@ -34,7 +34,7 @@ export default class NavbarButton extends Component {
   static defaultProps = {
     style: {},
     title: '',
-    tintColor: '#0076FF',
+    tintColor: 'white',
     onPress: () => ({}),
   };
 }
