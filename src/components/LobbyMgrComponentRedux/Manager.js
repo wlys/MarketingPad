@@ -3,6 +3,7 @@
 var React = require('react-native');
 var ThemesList=require('./ThemesList');
 var NavigationBar = require( '../_thirdpartComponent/NavBar');
+var IMConponent=require('../IMComponent');
 var {
     AppRegistry,
     Image,
@@ -108,13 +109,13 @@ class Manager extends Component {
         }
     }
     componentDidUpdate(){
+
         var scrollView = this.refs.scrollView ;
         const {activityTab} = this.props.lobby;
         scrollView.scrollResponderScrollTo({x:activityTab*width,y:0,animated:false});
     }
     _talkEvent(i) {
-        if(i!=this.props.activityTab) return;
-       var router ={name:'Talk'};
+        var router={Component: IMConponent};
         this.props.navigator.push(router);
     }
     _renderTabItems(tellerData) {
@@ -243,7 +244,8 @@ var styles = StyleSheet.create({
         width: width,
         backgroundColor: 'rgba(255,255,255,0.1)',
         //padding: 1,
-        height: height * 0.75-120
+        height: height * 0.75-170
+        //bottom:50
 
     },
     listContainer: {

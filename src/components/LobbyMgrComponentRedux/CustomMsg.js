@@ -262,6 +262,10 @@ class CustomMsg extends Component {
 
         );
     }
+    componentWillMount(){
+        const {showTabBar,tabBarShow}=this.props;
+        showTabBar(false);
+    }
     render() {
 
         return (
