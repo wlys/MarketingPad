@@ -3,7 +3,7 @@
 'use strict';
 
 var React = require('react-native');
-var ItemCell = require('./ItemCell');
+var ItemCell = require('./zItemCell');
 
 var {
     StyleSheet,

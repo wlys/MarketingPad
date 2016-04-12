@@ -22,7 +22,9 @@ var ScrollView_HEIGHT = globalStyles.WINDOW_HEIGHT- globalStyles.NAVBAR_HEIGHT -
 var HomeHeader = require('./HomeHeader');
 var TopScreen=require('./TopScreen');
 var Cat = require('./Cat');
-var ShowList=require('./ShowList');
+var RecommendList=require('./RecommendList');
+var Top5List=require('./Top5List');
+
 var Login = require('./login');
 
 var DRAWER_REF = 'drawer';
@@ -102,8 +104,9 @@ var home =  React.createClass({
 
                     <Cat navigator={this.props.navigator} />
 
-                    <ShowList navigator={this.props.navigator} />
+                    <RecommendList navigator={this.props.navigator} />
 
+                    <Top5List navigator={this.props.navigator} />
 
                 </ScrollView>
 

@@ -22,23 +22,27 @@ var FundDetailHeader = React.createClass({
         var navigator = this.props.navigator;
         var mainScreen = this.props.mainScreen;
 
-        if(this.props.navigator.getCurrentRoutes().length < 3) {
-            BackAndroid.addEventListener('hardwareBackPress', function () {
-                if (navigator && navigator.getCurrentRoutes().length > 1) {
-                    mainScreen._tabbarToggle(true);
-                    navigator.pop();
-                    return true;
-                }
-                return false;
-            });
-        };
+        //alert(this.props.navigator.getCurrentRoutes().length);
+
+        //if(this.props.navigator.getCurrentRoutes().length < 3) {
+        //    BackAndroid.addEventListener('hardwareBackPress', function () {
+        //        if (navigator && navigator.getCurrentRoutes().length > 1) {
+        //            mainScreen._tabbarToggle(true);
+        //            navigator.pop();
+        //            return true;
+        //        }
+        //        return false;
+        //    });
+        //};
 
     },
     componentWillUnmount() {
         var navigator = this.props.navigator;
         var mainScreen = this.props.mainScreen;
 
-        if(this.props.depth!=3) {
+        //alert(this.props.navigator.getCurrentRoutes().length);
+
+        if(this.props.navigator.getCurrentRoutes().length<2) {
             BackAndroid.removeEventListener('hardwareBackPress');
         };
     },
@@ -52,7 +56,7 @@ var FundDetailHeader = React.createClass({
                 fontSize:40,
             },
         };
-        alert(this.props.navigator.getCurrentRoutes().length);
+
         //this.props.mainScreen._tabbarToggle(false);
         return (
 

@@ -22,24 +22,24 @@ var LoginHeader = React.createClass({
     },
 
 
-    //componentDidMount() {
-    //    var navigator = this.props.navigator;
-    //    var mainScreen = this.props.mainScreen;
-    //
-    //    BackAndroid.addEventListener('hardwareBackPress', function() {
-    //        if (navigator && navigator.getCurrentRoutes().length > 1) {
-    //            mainScreen._tabbarToggle(true);
-    //            navigator.pop();
-    //            return true;
-    //        }
-    //        return false;
-    //    });
-    //},
-    //
-    //componentWillUnmount() {
-    //
-    //    BackAndroid.removeEventListener('hardwareBackPress');
-    //},
+    componentDidMount() {
+        var navigator = this.props.navigator;
+        var mainScreen = this.props.mainScreen;
+
+        BackAndroid.addEventListener('hardwareBackPress', function() {
+            if (navigator && navigator.getCurrentRoutes().length > 1) {
+                mainScreen._tabbarToggle(true);
+                navigator.pop();
+                return true;
+            }
+            return false;
+        });
+    },
+
+    componentWillUnmount() {
+
+        BackAndroid.removeEventListener('hardwareBackPress');
+    },
 
     render: function() {
 

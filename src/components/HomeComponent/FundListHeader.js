@@ -19,27 +19,37 @@ var FundListHeader = React.createClass({
         this.props.mainScreen._tabbarToggle(true);
     },
 
+
+    _backPressEvent(){
+
+        if (navigator && navigator.getCurrentRoutes().length > 1) {
+            mainScreen._tabbarToggle(true);
+            navigator.pop();
+            return true;
+        }
+        return false;
+    },
+
     componentDidMount() {
         var navigator = this.props.navigator;
         var mainScreen = this.props.mainScreen;
+       alert("DidMount,router's length:"+this.props.navigator.getCurrentRoutes().length);
+        BackAndroid.addEventListener('hardwareBackPress', function(){
 
-        if(this.props.direction=="forward")
-        {
-            BackAndroid.removeEventListener('hardwareBackPress');
-            BackAndroid.addEventListener('hardwareBackPress', function() {
-                if (navigator && navigator.getCurrentRoutes().length > 1) {
-                    mainScreen._tabbarToggle(true);
-                    navigator.pop();
-                    return true;
-                }
-                return false;
-            });
-        };
-
+            if (navigator && navigator.getCurrentRoutes().length > 1) {
+                mainScreen._tabbarToggle(true);
+                navigator.pop();
+                return true;
+            }
+            return false;
+        });
     },
 
     componentWillUnmount() {
-                    BackAndroid.removeEventListener('hardwareBackPress');
+        var navigator = this.props.navigator;
+        var mainScreen = this.props.mainScreen;
+        alert("WillUnmount,router's length:"+this.props.navigator.getCurrentRoutes().length);
+        BackAndroid.removeEventListener('hardwareBackPress');
     },
 
 
@@ -54,9 +64,8 @@ var FundListHeader = React.createClass({
             },
         };
 
-        if(this.props.direction=="forward") {
+
             this.props.mainScreen._tabbarToggle(false);
-        };
 
         return (
 
