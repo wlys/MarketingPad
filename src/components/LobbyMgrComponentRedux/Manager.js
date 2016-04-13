@@ -137,7 +137,7 @@ class Manager extends Component {
                         </View>
                         <TouchableOpacity onPress={()=>this._talkEvent(i)}>
                         <View style={[styles.msgRow,{marginTop:20}]}>
-                            <Text style={FrontStyles.talk}>交 谈</Text>
+                            <Text style={FrontStyles.talk}>{String.fromCharCode(parseInt('f27c',16))}</Text>
                         </View>
                         </TouchableOpacity>
                     </View>
