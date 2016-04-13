@@ -213,7 +213,7 @@ class Manager extends Component {
                 keyboardDismissMode="on-drag"
                 drawerPosition={DrawerLayoutAndroid.positions.Right}
                 renderNavigationView={this._renderNavigationView}>
-            <View style={{flex:1,backgroundColor: '#b0b0b0'}}>
+            <View style={{flex:1,backgroundColor: '#eeeeee'}}>
                 {this._renderHeader()}
                 <View style={{flexDirection: 'row'}}>
                     <View style={{backgroundColor: 'rgba(214,73,5,0.5)',height:10,width:5}}/>
@@ -231,7 +231,7 @@ class Manager extends Component {
                 </View>
                 <View style={{flexDirection: 'row'}}>
                     <View style={{backgroundColor: 'rgba(214,73,5,0.5)',height:10,width:5}}/>
-                        <Text style={{color: 'yellow'}}>排队顾客</Text>
+                        <Text style={{color: '#000000'}}>排队顾客</Text>
                 </View>
                 <View style={[styles.line]}/>
                 <View style={styles.listContainer}>
