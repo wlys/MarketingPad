@@ -213,7 +213,7 @@ class Manager extends Component {
                 keyboardDismissMode="on-drag"
                 drawerPosition={DrawerLayoutAndroid.positions.Right}
                 renderNavigationView={this._renderNavigationView}>
-            <View style={{flex:1,backgroundColor: 'rgba(52,63,81,1)'}}>
+            <View style={{flex:1,backgroundColor: '#b0b0b0'}}>
                 {this._renderHeader()}
                 <View style={{flexDirection: 'row'}}>
                     <View style={{backgroundColor: 'rgba(214,73,5,0.5)',height:10,width:5}}/>
