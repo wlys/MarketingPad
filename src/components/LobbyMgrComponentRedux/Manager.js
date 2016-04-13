@@ -163,10 +163,30 @@ class Manager extends Component {
     );
 }
     _renderHeader() {
+        const leftButtonConfig = {
+            title: String.fromCharCode(parseInt('f179',16)),
+            //handler: () => this._tabSelectedEvent(),
+
+            styleText:{
+                fontFamily:'Entypo',
+                fontSize:30,
+            },
+        };
+        const rightButtonConfig = {
+            title: String.fromCharCode(parseInt('f02e',16)),
+            // handler: () => this._tabSelectedEvent(),
+
+            styleText:{
+                fontFamily:'Octicons',
+                fontSize:30,
+            },
+        };
         return (
 
             <NavigationBar
                 title={{ title: '大堂管理' }}
+                leftButton={leftButtonConfig}
+                rightButton={rightButtonConfig}
                 />
 
         );
