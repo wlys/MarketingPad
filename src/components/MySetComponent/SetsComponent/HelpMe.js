@@ -6,13 +6,17 @@ var {
     Component
     } = React;
 
-class HelpMe extends Component{
+var DetailHeader = require('./DetailHeader');
+
+var HelpMe = React.createClass({
     render(){
         return(
-            <Text>HelpMe正在开发中... </Text>
+            <View>
+                <DetailHeader title='帮助' navigator={this.props.navigator} mainScreen={this.props.mainScreen}  />
+                <Text>Calculator正在开发中... </Text>
+            </View>
         );
     }
-}
-
+})
 module.exports=HelpMe;
 

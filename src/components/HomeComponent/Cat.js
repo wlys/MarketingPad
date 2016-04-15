@@ -13,10 +13,12 @@ var {
 
     } = React;
 
+var globalStyles = require('../../styles/globalStyles');
+
 module.exports = React.createClass({
     render() {
         return (
-            <View style={{flexDirection:'row', height:160,borderColor: '#CCCCCC',backgroundColor:'white',borderWidth: 1, marginTop:5, marginBottom:5}}>
+            <View style={{flexDirection:'row', height:160,borderColor: '#CCCCCC',backgroundColor:globalStyles.BACKGROUND_COLOR_HOME,borderWidth: 1, marginTop:5, marginBottom:5}}>
                 <View style={styles.leftCell}>
                     <TouchableOpacity  style={styles.touchCell} onPress={()=>{this.props.navigator.push({name:'Login'})}}>
                         <Text style={{fontFamily:'Entypo',fontSize:100,color:'#FFDD55', }}>

@@ -64,7 +64,7 @@ var ShowList = React.createClass({
         return (
 
 
-            <View style={{backgroundColor:'#eeeeee',marginTop:globalStyles.MARGIN_HEIGHT}}>
+            <View style={{backgroundColor:globalStyles.BACKGROUND_COLOR_HOME, marginTop:globalStyles.MARGIN_HEIGHT}}>
                 <TouchableOpacity onPress={()=>this._tabSelectedEvent()}>
                 <View style={styles.flexContainer}>
                     <View style={{width:30,justifyContent:'center'}}>
