@@ -19,11 +19,11 @@ var { width, height, scale } = Dimensions.get('window');
 width = width/2 -12;
 height = 110;
 
-var RecommendItem = React.createClass({
+var Top5Item = React.createClass({
 
     _tabSelectedEvent(msg){
-        var router ={name:"FundDetail",msg:msg};
-        this.props.navigator.push(router) ;
+        //var router ={name:"FundDetail",msg:msg};
+        //this.props.navigator.push(router) ;
     },
 
     render() {
@@ -40,7 +40,7 @@ var RecommendItem = React.createClass({
                         <View style={{alignItems:'center',}}>
 
                                 <Text style={{fontSize:28,color:'red'}}> {this.props.rate}%</Text>
-                                <Text style={{fontSize:12,color:'grey',textAlign: 'center'}}>近一年涨跌幅</Text>
+                                <Text style={{fontSize:12,color:'grey',textAlign: 'center'}}>预期年化收益率</Text>
 
 
                         </View>
@@ -101,4 +101,4 @@ var styles = StyleSheet.create({
 
 
 })
-module.exports = RecommendItem;
+module.exports = Top5Item;

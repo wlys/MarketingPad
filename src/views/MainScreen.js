@@ -34,7 +34,7 @@ var MainScreen = React.createClass({
 
     render: function () {
         return (
-            <Tabbar ref="myTabbar" barColor={'#eeeeee'} barSize={globalStyles.TABBAR_HEIGHT} initialTab={this.props.initialTab}>
+            <Tabbar ref="myTabbar" barColor={'white'} barSize={globalStyles.TABBAR_HEIGHT} initialTab={this.props.initialTab}>
                 <Tab name="Home">
                     <IconWithBar label=" 首页" {...tabBarProps} type={glypy.Home} from={'icomoon_slg'} size={26}/>
                     <RawContent>
@@ -64,7 +64,7 @@ var MainScreen = React.createClass({
                 <Tab name="settings">
                     <IconWithBar label="我的"  {...tabBarProps} type={glypy.Settings} from={'icomoon_slg2'} size={24}/>
                     <RawContent>
-                        <MySet />
+                        <MySet  mainScreen={this}/>
                     </RawContent>
 
                 </Tab>
