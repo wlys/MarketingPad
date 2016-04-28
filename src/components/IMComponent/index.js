@@ -5,13 +5,7 @@ var {Dimensions,View,ToolbarAndroid,StyleSheet,BackAndroid} = React;
 
 var index = React.createClass({
 
-    componentDidMount(){
-        BackAndroid.addEventListener('hardwareBackPress',function(){
-            this.props.tabBarShow(true);
-            this.props.navigator.pop();
-            return true;
-        }.bind(this));
-    },
+
     getMessages() {
         return [
             {text: '你好！', name: '柜员', image: {uri: 'https://facebook.github.io/react/img/logo_og.png'}, position: 'left', date: new Date(2015, 0, 16, 19, 0)},

@@ -134,7 +134,7 @@ class Manager extends Component {
                         </View>
                         <TouchableOpacity onPress={()=>this._talkEvent(i)}>
                         <View style={[styles.msgRow,{marginTop:20}]}>
-                            <Text style={FrontStyles.talk}>交 谈</Text>
+                            <Text style={FrontStyles.talk}>{String.fromCharCode(parseInt('f27c',16))}</Text>
                         </View>
                         </TouchableOpacity>
                     </View>
@@ -176,11 +176,30 @@ class Manager extends Component {
         );
     }*/
     _renderHeader() {
+        const leftButtonConfig = {
+            title: String.fromCharCode(parseInt('f179',16)),
+            //handler: () => this._tabSelectedEvent(),
 
+            styleText:{
+                fontFamily:'Entypo',
+                fontSize:30,
+            },
+        };
+        const rightButtonConfig = {
+            title: String.fromCharCode(parseInt('f02e',16)),
+           // handler: () => this._tabSelectedEvent(),
+
+            styleText:{
+                fontFamily:'Octicons',
+                fontSize:30,
+            },
+        };
         return (
 
             <NavigationBar
                 title={{ title: '大堂管理' }}
+                leftButton={leftButtonConfig}
+                rightButton={rightButtonConfig}
                 />
 
         );
@@ -194,7 +213,7 @@ class Manager extends Component {
                 keyboardDismissMode="on-drag"
                 drawerPosition={DrawerLayoutAndroid.positions.Right}
                 renderNavigationView={this._renderNavigationView}>
-            <View style={{flex:1,backgroundColor: 'rgba(52,63,81,1)'}}>
+            <View style={{flex:1,backgroundColor: '#eeeeee'}}>
                 {this._renderHeader()}
                 <View style={{flexDirection: 'row'}}>
                     <View style={{backgroundColor: 'rgba(214,73,5,0.5)',height:10,width:5}}/>
@@ -212,7 +231,7 @@ class Manager extends Component {
                 </View>
                 <View style={{flexDirection: 'row'}}>
                     <View style={{backgroundColor: 'rgba(214,73,5,0.5)',height:10,width:5}}/>
-                        <Text style={{color: 'yellow'}}>排队顾客</Text>
+                        <Text style={{color: '#000000'}}>排队顾客</Text>
                 </View>
                 <View style={[styles.line]}/>
                 <View style={styles.listContainer}>

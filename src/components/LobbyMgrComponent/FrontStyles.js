@@ -31,10 +31,11 @@ var FrontStyles = StyleSheet.create({
         fontFamily: 'sans-serif-thin'
     },
     talk:{
-        fontSize:16,
-        color:'red',
+        fontSize:30,
+        color:'#336699',
         flex:1,
         textAlign:'center',
+        fontFamily:'Entypo'
 
     },
 });
