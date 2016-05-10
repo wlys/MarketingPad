@@ -11,6 +11,7 @@ var TimerMixin = require('react-timer-mixin');
 
 var MainScreen = require('./MainScreen');
 var SplashScreen = require('./SplashScreen');
+var GuideScreen = require('./GuideScreen');
 
 import Storage from 'react-native-storage';
 
@@ -43,38 +44,45 @@ var App = React.createClass({
     getInitialState: function() {
         return {
             splashed: false,
-            isFirstIn:false
+            isFirstIn:true
+            //in fact ,should be initialized as false
         };
     },
 
 
     componentWillMount:function(){
         console.log("willmount");
-        storage.load({
-            key: 'userInfo',
-            autoSync: true,
-            syncInBackground: true
-        }).then( ret => {
-            console.log(ret.userid);
-            alert(ret.userid);
-            storage.remove({key:'userInfo'});
-        }).catch( err => {
-                console.log("no user");
-                alert('no user');
-                storage.save({
-                    key: 'userInfo',  //注意:请不要在key中使用_下划线符号!
-                    rawData: {
-                        from: 'some other site',
-                        userid: 'some userid',
-                        token: 'some token'
-                    },
-                    expires: 1000 * 3600
-                });
-                console.log("setState..");
-                this.setState({isFirstIn:true});
-        });
-    },
 
+
+        //storage.load({
+        //    key: 'userInfo',
+        //    autoSync: false,
+        //    syncInBackground: false
+        //}).then( ret => {
+        //    console.log(ret.userid);
+        //    //alert(ret.userid);
+        //    storage.remove({key:'userInfo'});
+        //}).catch( err => {
+        //    console.log("no user");
+        //    //alert('no user');
+        //    storage.save({
+        //        key: 'userInfo',  //注意:请不要在key中使用_下划线符号!
+        //        rawData: {
+        //            from: 'some other site',
+        //            userid: 'some userid',
+        //            token: 'some token'
+        //        },
+        //        expires: 1000 * 3600
+        //    });
+        //    console.log("setState..");
+        //    this.setState({isFirstIn:true});
+        //});
+
+
+    },
+    componentDidMount:function(){
+        console.log('didmount');
+    },
     componentDidUpdate: function() {
         console.log("didupdate");
         //if(this.state.isFirstIn){
@@ -91,13 +99,15 @@ var App = React.createClass({
 
     render: function() {
 
-          if(this.state.isFirstIn){
+        console.log('render');
+
+        if(this.state.isFirstIn){
 
             if (this.state.splashed) {
                 return <MainScreen initialTab="Home"/>
 
             } else {
-                return <SplashScreen />
+                return <GuideScreen />
             }
         }else{
             return <MainScreen initialTab="Home"/>
