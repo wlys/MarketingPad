@@ -28,23 +28,44 @@ class MenuItem extends Component{
         };
     }
 
+    Children() {
+        if(this.props.showChildren){
+            return(this.props.children);
+        }
+    }
+    image()
+    {
+        if(!this.props.showChildren)
+        return(
+        <Image style={[styles.iconSize]}
+               source={this.props.eicon_r} />
+        )
+    }
     render () {
         let margin2Top =parseInt(this.props.margin2Top);
+        const component = this.props.showChildren? this.props.children:null;
         return (
+            <View>
             <TouchableHighlight underlayColor="#dad9d7" onPress={this._performClick.bind(this)}>
-                <View style={{flexDirection:'row',alignItems:'center',backgroundColor:'#ffffff',height:45,marginTop:margin2Top,paddingLeft:20,paddingRight:20}}>
+                <View style={{flexDirection:'row',alignItems:'center',backgroundColor:this.props.color,height:this.props.height,marginTop:margin2Top,paddingLeft:20,paddingRight:20}}>
                     <Image style={[styles.iconSize]}
-                           source={require('./../Thumbnails/icon_bottomtag_me_n.png')} />
-                    <Text  style={{flex:1,color:'#333333',marginLeft:10}}>{this.props.title}</Text>
-                    <Image style={[styles.iconSize]}
-                           source={require("./../Thumbnails/arrow_right_grey.png")} />
-
+                           source={this.props.icon_l} />
+                    <Text  style={{flex:1,color:'#333333',fontSize:this.props.fontSize,marginLeft:10}}>{this.props.title}</Text>
+                    {this.image()}
                 </View>
             </TouchableHighlight>
+                    {component}
+                </View>
         );
     }
 }
+MenuItem.defaultProps = {
+    height:45,
+    fontSize:13,
+    showChildren:false,
+    color:'#ffffff'
 
+};
 var styles = StyleSheet.create({
     iconSize: {
         height:20,

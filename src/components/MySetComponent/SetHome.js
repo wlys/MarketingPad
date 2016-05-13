@@ -9,11 +9,12 @@ var {
     ScrollView,
     Image,
     ToolbarAndroid,
+    Dimensions,
     Component,
     } = React;
 
 var SetHomeHeader = require('./SetHomeHeader');
-
+var { width, height, scale } = Dimensions.get('window');
 var Calculator = require('./SetsComponent/Calculator');
 var HelpMe = require('./SetsComponent/HelpMe');
 var MenuItem = require('./SetsComponent/MenuItem');
@@ -44,57 +45,76 @@ var SetHome =  React.createClass({
     render() {
         return (
 
-            <View style={{}}>
+            <View style={{flex:1,backgroundColor:'#eeeeee'}}>
+                <View style={{height:height-80}}>
+                    <ScrollView showsVerticalScrollIndicator={false}>
 
-                {this._renderHeader()}
+                        {this._renderHeader()}
 
-                <View>
-                    <View style={{backgroundColor:'grey'}}>
-                        <View style={styles.transparent}>
-                            <Image style={[styles.logoSize]}
-                                   source={require('./Thumbnails/logo.png')} />
-                            <Text style={styles.userName}>您好,测试用户!!</Text>
-                        </View>
-                    </View>
 
-                    <MenuItem
-                        title='个人信息'
-                        icon="./../Thumbnails/icon_bottomtag_me_n.png"
-                        onClick={() => {this._tabSelectedEvent('MyInfo',"个人信息")}}/>
+                        <MenuItem
+                            margin2Top='10'
+                            title='个人信息'
+                            icon_l={require('./Image/icon_bottomtag_me_n.png')}
+                            icon_r={require('./Image/arrow_right_grey.png')}
+                            />
+                        <MenuItem
+                            title='晨会一页纸'
+                            margin2Top='1'
+                            icon_l={require('./Image/icon_bottomtag_me_n.png')}
+                            icon_r={require('./Image/arrow_right_grey.png')}
+                            />
 
-                    <MenuItem
-                        title='常用计算器'
-                        icon="./../Thumbnails/icon_bottomtag_me_n.png"
-                        onClick={() => {this._tabSelectedEvent('Calculator',"常用计算器")}}/>
+                        <MenuItem
+                            margin2Top='10'
+                            title='常用计算器'
+                            showChildren={false}
+                            icon_l={require('./Image/icon_bottomtag_me_n.png')}
+                            icon_r={require('./Image/arrow_right_grey.png')}
+                            >
 
-                    <MenuItem
-                        title='晨会一页纸'
-                        margin2Top='1'
-                        icon="./../Thumbnails/icon_bottomtag_me_n.png"
-                        onClick={() => {this._tabSelectedEvent('MorningPaper',"晨会一页纸")}}/>
+                            <MenuItem
+                                title='存款计算器'
+                                margin2Top='3'
+                                color='#dddddd'
+                                icon_l={require('./Image/icon_bottomtag_me_n.png')}
+                                icon_r={require('./Image/arrow_right_grey.png')}
+                                onClick={() => {this._openCalculator('save')}}/>
+                            <MenuItem
+                                title='贷款计算器'
+                                color='#dddddd'
+                                margin2Top='1'
+                                icon_l={require('./Image/icon_bottomtag_me_n.png')}
+                                icon_r={require('./Image/arrow_right_grey.png')}
+                                onClick={() => {this._openCalculator('loan')}}/>
+                            <MenuItem
+                                title='汇率计算器'
+                                color='#dddddd'
+                                margin2Top='1'
+                                icon_l={require('./Image/icon_bottomtag_me_n.png')}
+                                icon_r={require('./Image/arrow_right_grey.png')}
+                                onClick={() => {this._openCalculator('rate')}}/>
 
-                    <MenuItem
-                        title='帮助'
-                        margin2Top='1'
-                        icon="./../Thumbnails/icon_bottomtag_me_n.png"
-                        onClick={() => {this._tabSelectedEvent('HelpMe',"帮助")}}/>
+                        </MenuItem>
 
-                    <TouchableHighlight
-                        style={{flex:1,justifyContent:'center',alignItems:'center',backgroundColor:'red',height:45,marginTop:30}}
-                        underlayColor="#dad9d7" onPress={()=>this._call()}>
-                        <Text style={styles.themeName}>退出登录</Text>
-                    </TouchableHighlight>
+                        <MenuItem
+                            title='帮助'
+                            margin2Top='1'
+                            icon_l={require('./Image/icon_bottomtag_me_n.png')}
+                            icon_r={require('./Image/arrow_right_grey.png')}
+                            />
+                        <MenuItem
+                            title='意见反馈'
+                            margin2Top='1'
+                            icon_l={require('./Image/icon_bottomtag_me_n.png')}
+                            icon_r={require('./Image/arrow_right_grey.png')}
+                           />
 
-                    <TouchableHighlight
-                        style={{flex:1,justifyContent:'center',alignItems:'center',backgroundColor:'#ffffd0',height:45,marginTop:30}}
-                        underlayColor="#dad9d7" onPress={()=>this._call()}>
-                        <Text >拨打客服:999-95599</Text>
-                    </TouchableHighlight>
-
+                    </ScrollView>
                 </View>
-
             </View>
         );
+
     }
 });
 

@@ -18,6 +18,7 @@ var {
     View,
     Text,
     Component,
+    Image,
     Dimensions,
     StyleSheet,
     ScrollView,
@@ -31,9 +32,9 @@ var FrontStyles=require('./FrontStyles');
 var dataSource4={
     "entryCount": 3,
     "xVals": [
-        "A",
-        "B",
-        "C"
+        "活期存款",
+        "理财产品",
+        "定期存款"
     ],
     "dataSets": [
         {
@@ -66,7 +67,7 @@ class CustomMsg extends Component {
     data['yValues']=[
         {
             data:[],
-            label:'test1',
+            label:'万元',
             config:{
                 color:'blue'
             }
@@ -85,25 +86,40 @@ class CustomMsg extends Component {
                 <View style={[styles.line]}/>
                 <View style={styles.baseMsg}>
                     <View style={styles.photo}>
-                        <Text> 照片 </Text>
+                        <Image style={{resizeMode: Image.resizeMode.cover}} source={require('./image/photo.jpg')}/>
                     </View>
                     <View style={styles.custMsg}>
                     <View>
-                        <View>
-                            <Text style={styles.custMsgFront}>客户等级</Text>
+                        <View style={styles.custMsgline}>
+                            <Text style={styles.custMsgFront}>客户等级:     </Text>
+                            <Text style={[styles.custMsgFront,{color:'#ff9933'}]}>金卡</Text>
                         </View>
-                        <View>
-                            <Text style={styles.custMsgFront}>客户号</Text>
+                        <View style={styles.custMsgline}>
+                            <Text style={styles.custMsgFront}>客户号:     </Text>
+                            <Text style={[styles.custMsgFront,{color:'#000'}]}>16000000000</Text>
                         </View>
-                        <View>
-                            <Text style={styles.custMsgFront}>客户经理</Text>
+                        <View style={styles.custMsgline}>
+                            <Text style={styles.custMsgFront}>客户经理:   </Text>
+                            <Text style={[styles.custMsgFront,{color:'#000'}]}>王XX</Text>
                         </View>
-                        <View>
-                            <Text style={styles.custMsgFront}>客户经理号</Text>
+                        <View style={styles.custMsgline}>
+                            <Text style={styles.custMsgFront}>客户经理号:    </Text>
+                            <Text style={[styles.custMsgFront,{color:'#000'}]}>1111</Text>
                         </View>
                     </View>
-                    <View>
-                        <Text style={styles.tipFront}>标签</Text>
+                    <View style={styles.custMsgline}>
+                        <Text style={styles.tipFront}>标签:    </Text>
+                        <View style={{marginTop:5, flexDirection: 'row'}} >
+                        <View style={{backgroundColor:'#0066ff',marginLeft:5,padding:2}} >
+                            <Text style={[styles.tipFront2]}>不喜欢买基金</Text>
+                        </View>
+                        <View style={{backgroundColor:'#ff9933',marginLeft:5,padding:2}} >
+                            <Text style={[styles.tipFront2]}>有小孩</Text>
+                        </View>
+                        <View style={{backgroundColor:'green',marginLeft:5,padding:2}} >
+                            <Text style={[styles.tipFront2]}>私营业主</Text>
+                        </View>
+                        </View>
                     </View>
                         </View>
                 </View>
@@ -198,7 +214,7 @@ class CustomMsg extends Component {
                 <View style={{flex:1}}>
                     <Text style={[FrontStyles.custHold,{color:'#ff9933'}]}>{String.fromCharCode(parseInt('e902', 16))}  理财账户</Text>
                     <Text style={[FrontStyles.custHold,{color:'#ff9933'}]}>{String.fromCharCode(parseInt('e902', 16))}  贵金属交易</Text>
-                    <Text style={[FrontStyles.custHold,{color:'#ff9933'}]}>{String.fromCharCode(parseInt('e902', 16))}  贷记卡</Text>
+                    <Text style={[FrontStyles.custHold,{color:'#ff9933'}]}>{String.fromCharCode(parseInt('e902', 16))}  准贷记卡</Text>
                 </View>
             </View>
         );
@@ -293,6 +309,9 @@ var styles = StyleSheet.create({
         height: 1,
         backgroundColor: 'gray'
     },
+    custMsgline:{
+        flexDirection: 'row',
+    },
     titleFront: {
         flex: 1,
         fontSize: 12,
@@ -306,7 +325,12 @@ var styles = StyleSheet.create({
     tipFront:{
         fontSize: 12,
         color:"red",
-        marginTop:5 
+        marginTop:5
+    },
+    tipFront2:{
+        fontSize: 12,
+        color:"#fff",
+
     },
     page: {
         flex: 1,
@@ -322,7 +346,9 @@ var styles = StyleSheet.create({
     photo:{
         width:width*0.3,
         borderColor: 'rgba(0,0,0,0.1)',
-        borderWidth:1
+        borderWidth:1,
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     custMsg:{
         paddingLeft:20,

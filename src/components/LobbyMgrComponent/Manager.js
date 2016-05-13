@@ -63,32 +63,27 @@ var toolbarActions = [
 //var listdata1 = ['row 1', 'row 2', 'row 3', 'row 4', 'row 5', 'row 6', 'row 7', 'row 8', 'row 9', 'row 10', 'row 11', 'row 12'];
 //var listdata2 = ['row 11', 'row 21', 'row 31', 'row 41', 'row 51', 'row 6', 'row 7', 'row 8', 'row 9', 'row 10', 'row 11', 'row 12'];
 var listdata1 = [
-    {name:'刘孟轩',num:'V001',account:'1234567890123456',waitTime:'15'},
-    {name:'刘孟轩',num:'V001',account:'1234567890123456',waitTime:'15'},
-    {name:'刘孟轩',num:'V001',account:'1234567890123456',waitTime:'15'},
-    {name:'刘孟轩',num:'V001',account:'1234567890123456',waitTime:'15'},
-    {name:'刘孟轩',num:'V001',account:'1234567890123456',waitTime:'15'},
-    {name:'刘孟轩',num:'V001',account:'1234567890123456',waitTime:'15'},
-    {name:'刘孟轩',num:'V001',account:'1234567890123456',waitTime:'15'},
-    {name:'刘孟轩',num:'V001',account:'1234567890123456',waitTime:'15'},
-    {name:'刘孟轩',num:'V001',account:'1234567890123456',waitTime:'15'}
+    {name:'张三',num:'V001',account:'1234567890123456',waitTime:'15'},
+    {name:'李四',num:'V001',account:'1234567890123456',waitTime:'15'},
+    {name:'张三',num:'V001',account:'1234567890123456',waitTime:'15'},
+    {name:'张三',num:'V001',account:'1234567890123456',waitTime:'15'},
+    {name:'张三',num:'V001',account:'1234567890123456',waitTime:'15'},
+    {name:'李四',num:'V001',account:'1234567890123456',waitTime:'15'},
+    {name:'张三',num:'V001',account:'1234567890123456',waitTime:'15'},
+    {name:'李四',num:'V001',account:'1234567890123456',waitTime:'15'},
+    {name:'张三',num:'V001',account:'1234567890123456',waitTime:'15'}
 
 
 ];
 var listdata3 = [
-    {name:'刘孟轩',num:'V001',account:'1234567890123456',waitTime:'15'},
-    {name:'刘孟轩',num:'V001',account:'1234567890123456',waitTime:'15'},
-    {name:'刘孟轩',num:'V001',account:'1234567890123456',waitTime:'15'},
-    {name:'刘孟轩',num:'V001',account:'1234567890123456',waitTime:'15'},
-    {name:'刘孟轩',num:'V001',account:'1234567890123456',waitTime:'15'},
-    {name:'刘孟轩',num:'V001',account:'1234567890123456',waitTime:'15'},
-    {name:'刘孟轩',num:'V001',account:'1234567890123456',waitTime:'15'},
-    {name:'刘孟轩',num:'V001',account:'1234567890123456',waitTime:'15'},
-    {name:'刘孟轩',num:'V001',account:'1234567890123456',waitTime:'15'}
+    {name:'刘XX',num:'V001',account:'1234567890123456',waitTime:'15'},
+    {name:'王XX',num:'V001',account:'1234567890123456',waitTime:'15'},
+
 
 
 ];
-var listdata2 = [{name:'杨永向',num:'A001',account:'1234567890123456',waitTime:'15'}];
+var listdata2 = [{name:'赵五',num:'A001',account:'1234567890123456',waitTime:'15'}];
+var listdata4 = [{name:'张三',num:'A001',account:'1234567890123456',waitTime:'15'}];
 var CustomData=[listdata1,listdata2,listdata3];
 class Manager extends Component {
     // 构造
@@ -182,7 +177,7 @@ class Manager extends Component {
 
             styleText:{
                 fontFamily:'Entypo',
-                fontSize:30,
+                fontSize:25,
             },
         };
         const rightButtonConfig = {
@@ -191,7 +186,7 @@ class Manager extends Component {
 
             styleText:{
                 fontFamily:'Octicons',
-                fontSize:30,
+                fontSize:25,
             },
         };
         return (
@@ -216,7 +211,7 @@ class Manager extends Component {
             <View style={{flex:1,backgroundColor: '#eeeeee'}}>
                 {this._renderHeader()}
                 <View style={{flexDirection: 'row'}}>
-                    <View style={{backgroundColor: 'rgba(214,73,5,0.5)',height:10,width:5}}/>
+                    <View style={{backgroundColor: '#669999',height:10,width:5}}/>
 
                     <Text style={{color:'green'}}>柜员信息</Text>
 
@@ -230,7 +225,7 @@ class Manager extends Component {
                     </ScrollView>
                 </View>
                 <View style={{flexDirection: 'row'}}>
-                    <View style={{backgroundColor: 'rgba(214,73,5,0.5)',height:10,width:5}}/>
+                    <View style={{backgroundColor: '#669999',height:10,width:5}}/>
                         <Text style={{color: '#000000'}}>排队顾客</Text>
                 </View>
                 <View style={[styles.line]}/>
@@ -258,7 +253,7 @@ var styles = StyleSheet.create({
     line: {
         marginTop:1,
         height: 3,
-        backgroundColor: 'rgba(214,73,5,0.5)'
+        backgroundColor: '#669999'
     },
     tab: {
         flex: 1,

@@ -21,7 +21,8 @@ const glypy = glypyMapMaker({
 var Home = require('../components/HomeComponent');
 var LobbyMgr=require('./LobbyMgr');
 var Fiancial=require('../components/FinancialComponent');
-var MySet=require('../components/MySetComponent');
+
+import MySet from './MySetContainer'
 var tabBarProps={};
 tabBarProps['onActiveColor']='#009900';
 tabBarProps['onInactiveColor']='gray';

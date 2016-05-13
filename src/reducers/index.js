@@ -8,8 +8,6 @@ import profile from './profile/profileReducer';*/
 import lobby from './lobby/LobbyMgrReducers';
 import MainScreen from './MainScreen/MainScreenReducers';
 import { combineReducers } from 'redux';
-
-
 const rootReducer = combineReducers({
 lobby,MainScreen
 
